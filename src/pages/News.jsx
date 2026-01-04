@@ -7,7 +7,7 @@ import posts from '../data/post.mock.json';
 import { tagsmock } from '../data/tags.js';
 import { getTagColorById } from '../data/tags.js';
 import { useState } from 'react';
-import { PostCard } from '../components/ui/Cards';
+
 import img101 from 'src/assets/posts/101.jpg';
 import img102 from 'src/assets/posts/102.jpg';
 import img103 from 'src/assets/posts/103.jpg';
@@ -198,6 +198,65 @@ const StandardPostCard = ({ post, tagsmock }) => {
                             </span>
                         ))}
                     </div>
+                </div>
+            </div>
+        </Link>
+    );
+};
+
+export const PostCard = ({ post, tagsmock }) => {
+    const stripHtml = (html) => html.replace(/<[^>]+>/g, "");
+    const truncate = (text, max) => (text.length > max ? text.slice(0, max) + "…" : text);
+    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
+    const previewLength = 120;
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+
+    return (
+        <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full overflow-hidden">
+            {/* Image */}
+            <div className="relative w-full aspect-[4.5/3] overflow-hidden">
+                <img
+                    src={getPostImage(post)}
+                    alt={post.title.rendered}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+            </div>
+
+            {/* Content */}
+            <div className="py-4 flex flex-col justify-between gap-2">
+                {/* Date */}
+                <p className="text-xs text-gray-500">
+                    {new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+
+                {/* Title */}
+                <div className="flex justify-between gap-2 items-start">
+                    <h3 className="text-2xl md:text-xl font-semibold leading-snug">{post.title.rendered}</h3>
+                    <ArrowUpRight />
+                </div>
+
+                {/* Excerpt */}
+                <p className="text-xs text-gray-600 leading-relaxed">
+                    {truncate(stripHtml(post.content.rendered), 120)}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1 pt-1">
+                    {post.tags.map(tagId => {
+                        const tag = tagsmock[tagId];
+                        if (!tag) return null;
+                        return (
+                            <span
+                                key={tag.id}
+                                className={`text-[10px] px-2 py-[2px] rounded-full ${getTagColorById(tag.id)}`}
+                            >
+                                {tag.name}
+                            </span>
+                        );
+                    })}
                 </div>
             </div>
         </Link>

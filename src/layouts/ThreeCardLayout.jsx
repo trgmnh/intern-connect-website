@@ -1,6 +1,7 @@
 import React from "react";
 import { useLang } from '../context/LangContext';
-import { Card, PostCard } from "../components/ui/Cards"
+import { Card } from "../components/ui/Cards";
+import { PostCard } from "../pages/News.jsx";
 import { collaboration } from '../data/threecardlayout';
 import academicpartnership from '../assets/card/academicpartnership.jpg';
 import mobilityprogram from '../assets/card/mobilityprogram.jpg';

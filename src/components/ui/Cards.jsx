@@ -5,31 +5,6 @@ import { useLang } from '../../context/LangContext';
 import { Link } from "react-router-dom";
 import { getTagColorById } from "../../data/tags";
 
-import { getPostImage } from "src/pages/News";
-import img101 from 'src/assets/posts/101.jpg';
-import img102 from 'src/assets/posts/102.jpg';
-import img103 from 'src/assets/posts/103.jpg';
-import img104 from 'src/assets/posts/104.jpg';
-import img105 from 'src/assets/posts/105.jpg';
-import img106 from 'src/assets/posts/106.jpg';
-import img107 from 'src/assets/posts/107.jpg';
-import img108 from 'src/assets/posts/108.jpg';
-import img109 from 'src/assets/posts/109.jpg';
-import img110 from 'src/assets/posts/110.jpg';
-
-const mockImages = {
-    101: img101,
-    102: img102,
-    103: img103,
-    104: img104,
-    105: img105,
-    106: img106,
-    107: img107,
-    108: img108,
-    109: img109,
-    110: img110,
-};
-
 // for internship and destination cards
 export const Card = ({
     imageSrc,
@@ -151,61 +126,3 @@ export const FrequentAskedQuestionCard = ({ question, answer }) => {
     );
 };
 
-export const PostCard = ({ post, tagsmock }) => {
-    const stripHtml = (html) => html.replace(/<[^>]+>/g, "");
-    const truncate = (text, max) => (text.length > max ? text.slice(0, max) + "…" : text);
-    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
-    const previewLength = 120;
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    }
-
-    return (
-        <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full overflow-hidden">
-            {/* Image */}
-            <div className="relative w-full aspect-[4.5/3] overflow-hidden">
-                <img
-                    src={getPostImage(post)}
-                    alt={post.title.rendered}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-            </div>
-
-            {/* Content */}
-            <div className="py-4 flex flex-col justify-between gap-2">
-                {/* Date */}
-                <p className="text-xs text-gray-500">
-                    {new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
-                </p>
-
-                {/* Title */}
-                <div className="flex justify-between gap-2 items-start">
-                    <h3 className="text-2xl md:text-xl font-semibold leading-snug">{post.title.rendered}</h3>
-                    <ArrowUpRight />
-                </div>
-
-                {/* Excerpt */}
-                <p className="text-xs text-gray-600 leading-relaxed">
-                    {truncate(stripHtml(post.content.rendered), 120)}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1 pt-1">
-                    {post.tags.map(tagId => {
-                        const tag = tagsmock[tagId];
-                        if (!tag) return null;
-                        return (
-                            <span
-                                key={tag.id}
-                                className={`text-[10px] px-2 py-[2px] rounded-full ${getTagColorById(tag.id)}`}
-                            >
-                                {tag.name}
-                            </span>
-                        );
-                    })}
-                </div>
-            </div>
-        </Link>
-    );
-};
