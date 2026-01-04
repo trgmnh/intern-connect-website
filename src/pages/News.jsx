@@ -8,6 +8,16 @@ import { tagsmock } from '../data/tags.js';
 import { getTagColorById } from '../data/tags.js';
 import { useState } from 'react';
 import { PostCard } from '../components/ui/Cards';
+import img101 from '../assets/posts/101.jpg';
+import img102 from '../assets/posts/102.jpg';
+import img103 from '../assets/posts/103.jpg';
+import img104 from '../assets/posts/104.jpg';
+import img105 from '../assets/posts/105.jpg';
+import img106 from '../assets/posts/106.jpg';
+import img107 from '../assets/posts/107.jpg';
+import img108 from '../assets/posts/108.jpg';
+import img109 from '../assets/posts/109.jpg';
+import img110 from '../assets/posts/110.jpg';
 
 const stripHtml = html => html.replace(/<[^>]+>/g, "");
 
@@ -30,7 +40,7 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
                 {/* Image */}
                 <div className="overflow-hidden md:aspect-[3/1]">
                     <img
-                        src={`src/assets/posts/${post.id}.jpg`}
+                        src={`src/assets/posts/img${post.id}.jpg`}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />

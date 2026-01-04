@@ -255,7 +255,7 @@ const VisionMission = () => {
     );
 }
 
-export const Activities = () => {
+const Activities = () => {
     const { language } = useLang();
     const activity = activities[language] || [];
     return (
