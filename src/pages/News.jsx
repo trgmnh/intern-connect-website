@@ -21,7 +21,6 @@ const formatDate = date =>
 const truncate = (text, max) =>
     text.length > max ? text.slice(0, max) + "…" : text;
 
-
 export const FeaturedPostCard = ({ post, tagsmock }) => {
     const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
     const previewLength = 200;
