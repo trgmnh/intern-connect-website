@@ -40,7 +40,7 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
                 {/* Image */}
                 <div className="overflow-hidden md:aspect-[3/1]">
                     <img
-                        src={`src/assets/posts/img${post.id}.jpg`}
+                        src={`img${post.id}`}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
