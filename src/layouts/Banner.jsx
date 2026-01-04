@@ -208,14 +208,13 @@ export const BannerNumbers = () => {
 
 export const BlogBanner = () => {
     const { language } = useLang();
-    const contact = ContactBanner[language];
     return (
 
-        <section className="relative w-full h-[50vh] lg:h-[40vh] overflow-hidden lg:px-4">
+        <section className="relative w-full h-[70vh] lg:h-[40vh] overflow-hidden lg:px-4">
             {/* Background image */}
             <img
                 src={blogbanner}
-                alt="Contact Background"
+                alt="Blog Background"
                 className="absolute inset-0 w-full h-full object-cover"
             />
 
