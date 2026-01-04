@@ -19,6 +19,34 @@ import img108 from '../assets/posts/108.jpg';
 import img109 from '../assets/posts/109.jpg';
 import img110 from '../assets/posts/110.jpg';
 
+const mockImages = {
+    101: img101,
+    102: img102,
+    103: img103,
+    104: img104,
+    105: img105,
+    106: img106,
+    107: img107,
+    108: img108,
+    109: img109,
+    110: img110,
+};
+
+export function getPostImage(post) {
+    // 1️⃣ WordPress featured image (future)
+    if (post._embedded?.["wp:featuredmedia"]?.[0]?.source_url) {
+        return post._embedded["wp:featuredmedia"][0].source_url;
+    }
+
+    // 2️⃣ Mock image (current)
+    if (mockImages[post.id]) {
+        return mockImages[post.id];
+    }
+
+    // 3️⃣ Fallback
+    return "/placeholder.jpg";
+}
+
 const stripHtml = html => html.replace(/<[^>]+>/g, "");
 
 const formatDate = date =>
@@ -40,7 +68,7 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
                 {/* Image */}
                 <div className="overflow-hidden md:aspect-[3/1]">
                     <img
-                        src={`img${post.id}`}
+                        src={getPostImage(post)}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
@@ -90,7 +118,7 @@ export const CompactPostCard = ({ post, tagsmock }) => {
             {/* Image */}
             <div className="w-full h-auto overflow-hidden shrink-0">
                 <img
-                    src={`src/assets/posts/${post.id}.jpg`}
+                    src={getPostImage(post)}
                     alt={post.title.rendered}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -137,7 +165,7 @@ const StandardPostCard = ({ post, tagsmock }) => {
                 {/* Image */}
                 <div className="overflow-hidden lg:aspect-[2.5/1]">
                     <img
-                        src={`src/assets/posts/${post.id}.jpg`}
+                        src={getPostImage(post)}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
