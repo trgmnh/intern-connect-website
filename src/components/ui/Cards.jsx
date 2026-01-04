@@ -5,6 +5,31 @@ import { useLang } from '../../context/LangContext';
 import { Link } from "react-router-dom";
 import { getTagColorById } from "../../data/tags";
 
+import { getPostImage } from "src/pages/News";
+import img101 from 'src/assets/posts/101.jpg';
+import img102 from 'src/assets/posts/102.jpg';
+import img103 from 'src/assets/posts/103.jpg';
+import img104 from 'src/assets/posts/104.jpg';
+import img105 from 'src/assets/posts/105.jpg';
+import img106 from 'src/assets/posts/106.jpg';
+import img107 from 'src/assets/posts/107.jpg';
+import img108 from 'src/assets/posts/108.jpg';
+import img109 from 'src/assets/posts/109.jpg';
+import img110 from 'src/assets/posts/110.jpg';
+
+const mockImages = {
+    101: img101,
+    102: img102,
+    103: img103,
+    104: img104,
+    105: img105,
+    106: img106,
+    107: img107,
+    108: img108,
+    109: img109,
+    110: img110,
+};
+
 // for internship and destination cards
 export const Card = ({
     imageSrc,
@@ -141,7 +166,7 @@ export const PostCard = ({ post, tagsmock }) => {
             {/* Image */}
             <div className="relative w-full aspect-[4.5/3] overflow-hidden">
                 <img
-                    src={`src/assets/posts/${post.id}.jpg`}
+                    src={getPostImage(post)}
                     alt={post.title.rendered}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
