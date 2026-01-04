@@ -10,14 +10,14 @@ import { useState } from 'react';
 import { PostCard } from '../components/ui/Cards';
 import img101 from 'src/assets/posts/101.jpg';
 import img102 from 'src/assets/posts/102.jpg';
-import img103 from '/assets/posts/103.jpg';
-import img104 from '../assets/posts/104.jpg';
-import img105 from '../assets/posts/105.jpg';
-import img106 from '../assets/posts/106.jpg';
-import img107 from '../assets/posts/107.jpg';
-import img108 from '../assets/posts/108.jpg';
-import img109 from '../assets/posts/109.jpg';
-import img110 from '../assets/posts/110.jpg';
+import img103 from 'src/assets/posts/103.jpg';
+import img104 from 'src/assets/posts/104.jpg';
+import img105 from 'src/assets/posts/105.jpg';
+import img106 from 'src/assets/posts/106.jpg';
+import img107 from 'src/assets/posts/107.jpg';
+import img108 from 'src/assets/posts/108.jpg';
+import img109 from 'src/assets/posts/109.jpg';
+import img110 from 'src/assets/posts/110.jpg';
 
 const mockImages = {
     101: img101,
