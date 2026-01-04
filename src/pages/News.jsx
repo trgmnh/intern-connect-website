@@ -33,19 +33,19 @@ const mockImages = {
 };
 
 export function getPostImage(post) {
-    // 1️⃣ WordPress featured image (future)
+    // Future: real WordPress
     if (post._embedded?.["wp:featuredmedia"]?.[0]?.source_url) {
         return post._embedded["wp:featuredmedia"][0].source_url;
     }
 
-    // 2️⃣ Mock image (current)
-    if (mockImages[post.id]) {
+    // Mock mode (USE THE MAP YOU CREATED)
+    if (post.id && mockImages[post.id]) {
         return mockImages[post.id];
     }
 
-    // 3️⃣ Fallback
     return "/placeholder.jpg";
 }
+
 
 const stripHtml = html => html.replace(/<[^>]+>/g, "");
 
