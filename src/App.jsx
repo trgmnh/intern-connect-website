@@ -1,102 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/layouts/Navbar";
-import Footer from "./components/layouts/Footer";
-import * as All from "./components/layouts/Heading";
-import { LogoHotel } from "./components/layouts/LogoHotel";
-import { HeroHome, HeroAbout, HeroServices, HeroNews, HeroContact } from "./components/layouts/Hero";
-import { BannerService, BannerContact, BannerNumbers, BlogBanner } from "./components/layouts/Banner";
-import { Destinations, Internships } from "./components/layouts/FourCardsLayout";
-import { Activities, CollaborationFormats } from "./components/ThreeCardLayout";
-import { BoardOfDirectors, AboutImage, VisionMission, AboutHome, WhyChooseUs, Process, Commitment } from "./components/About";
-import { Testimonials, FrequentAskedQuestions, ContactUsPage } from "./components/Customer";
-import { CoreValues, ServiceInclude } from "./components/Services";
+import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/Footer";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import ServicesPage from "./pages/Services";
+import NewsPage from "./pages/News";
+import ContactPage from "./pages/Contact";
+import BlogPostPage from "./pages/BlogPostPage"; // <-- page for single post
 
-const HomePage = () => (
-  <>
-    <HeroHome />
-    <All.HeadingPartner />
-    <LogoHotel />
-
-    <All.HeadingDestinations />
-    <Destinations />
-    <All.HeadingInternships />
-    <Internships />
-    <BlogBanner />
-
-
-    <AboutHome />
-    <All.HeadingChooseUs />
-    <WhyChooseUs />
-    <BannerService />
-
-    <ContactUsPage />
-    {/* Add more sections if needed */}
-  </>
-);
-
-const AboutPage = () => (
-  <>
-    <HeroAbout />
-    <All.HeadingAboutUs />
-    <AboutImage />
-    <VisionMission />
-    <All.HeadingCoreValues />
-
-    <CoreValues />
-    {/* Add more sections if needed */}
-    <BannerNumbers />
-
-
-    <All.HeadingBOD />
-    <BoardOfDirectors />
-
-    <All.HeadingActivities />
-    <Activities />
-    <BannerService />
-
-  </>
-);
-
-const ServicesPage = () => (
-  <>
-    <HeroServices />
-    <All.HeadingOurServices />
-    <ServiceInclude />
-    <All.HeadingFeatures />
-    <CollaborationFormats />
-    <BlogBanner />
-    <All.HeadingDestinations />
-    <Destinations />
-    <All.HeadingInternships />
-    <Internships />
-    <BannerContact />
-    <All.HeadingOurProcess />
-    <Process />
-    <All.HeadingCommitments />
-    <Commitment />
-    <All.HeadingTestimonials />
-    <Testimonials />
-    <All.HeadingFAQ />
-    <FrequentAskedQuestions />
-    {/* Add more sections if needed */}
-  </>
-);
-
-const NewsPage = () => (
-  <>
-    <HeroNews />
-    {/* Add more sections if needed */}
-  </>
-);
-
-const ContactPage = () => (
-  <>
-    <HeroContact />
-    <ContactUsPage />
-    {/* Add more sections if needed */}
-  </>
-);
 
 const App = () => {
   return (
@@ -110,6 +22,7 @@ const App = () => {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/news/:slug" element={<BlogPostPage />} />
         </Routes>
       </main>
 

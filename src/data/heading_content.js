@@ -15,7 +15,7 @@ export const HeadingHome = {
             main: "Your Trusted Internship Partner"
         },
         vi: {
-            sub: "Tại Sao Chọn Chúng Tôi",
+            sub: "Tại Sao Chọn Intern Connect",
             main: "Đối Tác Thực Tập Đáng Tin Cậy Của Bạn"
         }
     },
@@ -45,7 +45,7 @@ export const HeadingHome = {
             main: "What Our Interns Say"
         },
         vi: {
-            sub: "Lời Chứng Thực",
+            sub: "Đánh Giá",
             main: "Trải Nghiệm Của Thực Tập Sinh"
         }
     },
