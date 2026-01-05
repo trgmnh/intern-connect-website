@@ -119,7 +119,7 @@ export const CompactPostCard = ({ post, tagsmock }) => {
 
 const StandardPostCard = ({ post, tagsmock }) => {
     const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
-    const previewLength = 360;
+    const previewLength = 420;
 
     return (
         <Link to={`/blog/${post.slug}`} className="group">
