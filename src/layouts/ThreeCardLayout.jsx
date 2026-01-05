@@ -45,7 +45,7 @@ export const HighlightedNews = () => {
     const highlighted = posts.slice(0, 3);
 
     return (
-        <section className="flex flex-col items-center max-w-[1440px] mx-auto px-5">
+        <section className="flex flex-col items-center mb-6 md:mb-0 max-w-[1440px] mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1440px] mx-auto mb-4 px-5">
                 {highlighted.map(post => {
                     const resolvedTags = post.tags

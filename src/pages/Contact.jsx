@@ -15,11 +15,11 @@ export const ContactUsPage = () => {
     //     });
     // }, []);
     return (
-        <section id="contact" className="relative overflow-hidden bg-white max-w-[1440px] pt-8 lg:pt-20 mx-auto mb-20">
-            <div className="relative z-10  grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 mx-10 md:shadow-md">
+        <section id="contact" className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1440px] pt-8 lg:pt-20 mx-auto mb-20">
+            <div className="relative z-10  grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 mx-5 md:shadow-md">
                 <div className="flex flex-col justify-between gap-6
                 items-center md:items-start
-                md:border md:border-gray-200 md:shadow-xl px-4 md:py-14 md:px-12">
+                md:border md:border-gray-200 md:shadow-xl md:py-14 md:px-12">
 
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
                         <img
@@ -41,11 +41,16 @@ export const ContactUsPage = () => {
                   text-center md:text-left">
 
                         {/* Email */}
-                        <div className="flex flex-col items-center md:flex-row gap-4 w-full">
-                            <Mail className="w-5 h-5 shrink-0 text-[#5C6370]" />
-                            <span className="text-md md:text-sm break-words">
-                                {contactUsContent.email}
-                            </span>
+                        <div className="flex flex-col items-center md:items-start gap-4 pt-4 text-[#5C6370] w-full">
+                            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 w-full min-w-0">
+                                <Mail className="w-6 md:w-3 h-auto shrink-0" />
+                                <a
+                                    href="mailto:recruitmentmanager@internconnectvn.com"
+                                    className="text-md text-center md:text-left break-all break-words hover:underline min-w-0"
+                                >
+                                    recruitmentmanager@internconnectvn.com
+                                </a>
+                            </div>
                         </div>
 
                         {/* Phone */}
@@ -84,7 +89,7 @@ export const ContactUsPage = () => {
                                     aria-label="TikTok"
                                     target="_blank"
                                     rel="noopener noreferrer" className="cursor-pointer hover:opacity-80">
-                                    <div className='relative p-2 border-[#5C6370]/30 border-[1px] rounded-full'><TikTok width={16} height={16} className="w-5 h-5" /></div>
+                                    <div className='relative p-2 border-[#5C6370]/30 border-[1px] rounded-full'><TikTok width={16} height={16} className="w-6 h-6" /></div>
                                 </a>
                                 <a href="https://www.instagram.com/internconnectvn/"
                                     aria-label="Instagram"

@@ -30,7 +30,7 @@ const AboutHome = () => {
                         />
                     </div>
 
-                    <p className="text-sm leading-6 text-gray-700 text-center lg:text-justify max-w-[320px] lg:max-w-[600px] hyphens-auto">
+                    <p className="text-sm leading-6 text-gray-700 text-center lg:text-justify max-w-[320px] lg:max-w-[600px] hyphens-auto mb-6 md:mb-0">
                         {content.left.paragraph}
                     </p>
                 </div>

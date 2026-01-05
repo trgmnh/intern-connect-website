@@ -14,6 +14,7 @@ import { Destinations, Internships } from "../layouts/FourCardsLayout";
 import aboutuspic from '../assets/card/aboutuspic.jpeg';
 import { Button } from '../components/ui/Button';
 import { FrequentAskedQuestionCard } from '../components/ui/Cards';
+import { Link } from "react-router-dom";
 
 const ServiceInclude = () => {
     const { language } = useLang();
@@ -49,7 +50,7 @@ const ServiceInclude = () => {
                         })}
                     </div>
                     <div className="flex justify-center my-6">
-                        <Button text={language === "en" ? "Talk to Our Team" : "Liên hệ Ngay"} arrow={true} />
+                        <Link to="/contact"><Button text={language === "en" ? "Talk to Our Team" : "Liên hệ Ngay"} arrow={true} /></Link>
                     </div>
                 </div>
             </div>

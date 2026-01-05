@@ -58,7 +58,7 @@ const Footer = () => {
                                     <Mail className="w-6 md:w-3 h-auto shrink-0" />
                                     <a
                                         href="mailto:recruitmentmanager@internconnectvn.com"
-                                        className="text-sm text-center md:text-left break-all sm:break-words hover:underline min-w-0"
+                                        className="text-sm text-center md:text-left break-all break-words hover:underline min-w-0"
                                     >
                                         recruitmentmanager@internconnectvn.com
                                     </a>

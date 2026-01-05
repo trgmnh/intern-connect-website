@@ -42,7 +42,7 @@ const AboutImage = () => {
 
 
                         {/* Logo + paragraph */}
-                        < div className='h-full flex flex-col gap-8 p-8 border border-gray-300 shadow-md'>
+                        < div className='h-full flex flex-col gap-8 p-4 md:p-8 border border-gray-300 shadow-md'>
 
                             <div className="flex flex-col justify-start relative overflow-hidden">
                                 <img
@@ -65,7 +65,7 @@ const AboutImage = () => {
                                     <div className="w-fit bg-gray-200 p-2 rounded-lg text-[#0057A0]">
                                         <Globe className="w-12 h-12 sm:w-16 sm:h-16" />
                                     </div>
-                                    <p className="text-gray-700 text-sm sm:text-justify text-justify leading-normal">
+                                    <p className="text-gray-700 text-sm md:text-justify leading-normal hyphens-auto">
                                         {content.description2}
                                     </p>
                                 </div>
@@ -74,7 +74,7 @@ const AboutImage = () => {
                                     <div className="w-fit bg-gray-200 p-2 rounded-lg text-[#0057A0]">
                                         <Connect className="w-20 h-20 sm:w-16 sm:h-16" />
                                     </div>
-                                    <p className="text-gray-700 text-sm sm:text-justify text-justify leading-normal">
+                                    <p className="text-gray-700 text-sm text-justify leading-normal hyphens-auto">
                                         {content.description3}
                                     </p>
                                 </div>
