@@ -11,8 +11,7 @@ import daniel from '../assets/bod/mrdaniel.png';
 import mrsvy from '../assets/bod/mrsvy.png';
 import { Globe, Connect, Award, PersonCheckedFill, PeopleFill, Eye, BriefCase, GraphUpArrow } from '../components/ui/Icons';
 import { useLang } from '../context/LangContext';
-import * as All from '../layouts/Heading';
-import candidateselectionImg from '../assets/card/candidateselection.jpeg';
+import { HeadingAboutUs, HeadingBOD, HeadingCoreValues, HeadingActivities } from '../layouts/Heading';
 import { activities } from '../data/threecardlayout';
 import Carousel from '../libraries/Carousel';
 import slide1 from '../assets/carousel/slide1.jpg';
@@ -302,17 +301,17 @@ const Activities = () => {
 const AboutPage = () => (
     <>
         <HeroAbout />
-        <All.HeadingAboutUs />
+        <HeadingAboutUs />
         <AboutImage />
         <VisionMission />
-        <All.HeadingCoreValues />
+        <HeadingCoreValues />
         <CoreValues />
         {/* Add more sections if needed */}
         <BannerNumbers />
-        <All.HeadingBOD />
+        <HeadingBOD />
         <BoardOfDirectors />
 
-        <All.HeadingActivities />
+        <HeadingActivities />
         <Activities />
         <BannerService />
 

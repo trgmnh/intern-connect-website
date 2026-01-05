@@ -1,6 +1,14 @@
 import { useParams } from "react-router-dom";
 import posts from "../data/post.mock.json";
 
+const fetchPosts = async () => {
+    const res = await fetch(
+        "https://internconnectvn.com/wp-json/wp/v2/posts?_fields=id,slug,link,title,excerpt,content,author,date,categories,tags,featured_media"
+    );
+    const data = await res.json();
+    return data; // already filtered
+};
+
 const BlogPostPage = () => {
     const { slug } = useParams();
 

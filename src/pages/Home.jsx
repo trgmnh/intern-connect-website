@@ -1,5 +1,5 @@
 import { HeroHome } from "../layouts/Hero.jsx";
-import * as All from "../layouts/Heading.jsx";
+import { HeadingPartner, HeadingInternships, HeadingDestinations, HeadingNews, HeadingChooseUs } from "../layouts/Heading.jsx";
 import { LogoHotel } from "../layouts/LogoHotel.jsx";
 import { Destinations, Internships } from "../layouts/FourCardsLayout.jsx";
 import { BlogBanner, BannerService, BannerContact } from "../layouts/Banner.jsx";
@@ -134,21 +134,21 @@ const WhyChooseUs = () => {
 const HomePage = () => (
     <>
         <HeroHome />
-        <All.HeadingPartner />
+        <HeadingPartner />
         <LogoHotel />
 
-        <All.HeadingDestinations />
+        <HeadingDestinations />
         <Destinations />
-        <All.HeadingInternships />
+        <HeadingInternships />
         <Internships />
         <BlogBanner />
-        <All.HeadingNews />
+        <HeadingNews />
         <HighlightedNews />
         <ContactUsPage />
 
         <BannerService />
         <AboutHome />
-        <All.HeadingChooseUs />
+        <HeadingChooseUs />
         <WhyChooseUs />
         <BannerContact />
         {/* Add more sections if needed */}
