@@ -151,7 +151,7 @@ export const BannerNumbers = () => {
 
 
                     {/* Numbers grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-7">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:py-7">
                         <div className="flex flex-col items-center">
                             <h2 className="text-4xl md:text-6xl font-bold"><CountUp
                                 from={0}
