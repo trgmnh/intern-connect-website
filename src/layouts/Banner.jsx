@@ -151,9 +151,9 @@ export const BannerNumbers = () => {
 
 
                     {/* Numbers grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:py-7">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-12 lg:py-7">
                         <div className="flex flex-col items-center">
-                            <h2 className="text-4xl md:text-6xl font-bold"><CountUp
+                            <h2 className="text-6xl font-bold"><CountUp
                                 from={0}
                                 to={5000}
                                 separator=","
@@ -164,7 +164,7 @@ export const BannerNumbers = () => {
                             <p className="text-md mt-2 text-white/90">{numbers.studentconnected}</p>
                         </div>
                         <div className="flex flex-col items-center">
-                            <h2 className="text-4xl md:text-6xl font-bold"><CountUp
+                            <h2 className="text-6xl font-bold"><CountUp
                                 from={0}
                                 to={30}
                                 separator=","
@@ -175,7 +175,7 @@ export const BannerNumbers = () => {
                             <p className="text-md mt-2 text-white/90">{numbers.countries}</p>
                         </div>
                         <div className="flex flex-col items-center">
-                            <h2 className="text-4xl md:text-6xl font-bold"><CountUp
+                            <h2 className="text-6xl font-bold"><CountUp
                                 from={0}
                                 to={100}
                                 separator=","
@@ -186,7 +186,7 @@ export const BannerNumbers = () => {
                             <p className="text-md mt-2 text-white/90">{numbers.partners}</p>
                         </div>
                         <div className="flex flex-col items-center">
-                            <h2 className="text-4xl md:text-6xl font-bold"><CountUp
+                            <h2 className="text-6xl font-bold"><CountUp
                                 from={0}
                                 to={95}
                                 separator=","
