@@ -124,7 +124,7 @@ export const BannerNumbers = () => {
     const { language } = useLang();
     const numbers = Numbers[language];
     return (
-        <section className="relative flex w-full h-[80vh] md:h-[40vh] lg:h-[300px] overflow-hidden mt-14">
+        <section className="relative flex w-full h-[80vh] md:h-[50vh] lg:h-[300px] overflow-hidden mt-14">
             {/* Background image */}
             <img
                 src={numbersbanner}
