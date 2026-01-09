@@ -1,15 +1,31 @@
-import React, { use } from 'react';
+import React from 'react';
 import { HeroNews } from '../layouts/Hero';
 import { useLang } from '../context/LangContext';
 import { ArrowUpRight } from '../components/ui/Icons';
 import { Link } from 'react-router-dom';
-import posts from '../data/post.mock.json';
-import { tagsmock } from '../data/tags.js';
 import { getTagColorById } from '../data/tags.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getPostImage } from '../utils/getPostImage.js';
+import { fetchPostsList, fetchTags } from "../api/wordpress";
 
-const stripHtml = html => html.replace(/<[^>]+>/g, "");
+
+export const cleanExcerpt = (html) => {
+    if (!html) return "";
+
+    // Remove headings completely
+    let text = html.replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gis, "");
+
+    // Remove all remaining HTML tags
+    text = text.replace(/<[^>]+>/g, "");
+
+    // Decode HTML entities (&#8220; → “)
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = text;
+    text = textarea.value;
+
+    return text.trim();
+};
+
 
 const formatDate = date =>
     new Date(date).toLocaleDateString("en-GB", {
@@ -21,11 +37,11 @@ const formatDate = date =>
 const truncate = (text, max) =>
     text.length > max ? text.slice(0, max) + "…" : text;
 
-export const FeaturedPostCard = ({ post, tagsmock }) => {
-    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
+export const FeaturedPostCard = ({ post, tagsfetch }) => {
+    const tags = post.tags.map(id => tagsfetch[id]).filter(Boolean);
     const previewLength = 200;
     return (
-        <Link to={`/blog/${post.slug}`} className="group">
+        <Link to={`/news/${post.slug}`} className="group">
             <div className="flex flex-col gap-2 overflow-hidden">
                 {/* Image */}
                 <div className="overflow-hidden md:aspect-[3/1]">
@@ -33,6 +49,7 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
                         src={getPostImage(post)}
                         alt={post.title.rendered}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
                     />
                 </div>
 
@@ -51,7 +68,7 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
 
                         {/* Excerpt */}
                         <p className="text-sm text-gray-600 text-justify leading-relaxed mr-10">
-                            {truncate(stripHtml(post.content.rendered), previewLength)}
+                            {truncate(cleanExcerpt(post.excerpt.rendered), previewLength)}
                         </p> </div>
 
                     {/* Tags */}
@@ -71,22 +88,23 @@ export const FeaturedPostCard = ({ post, tagsmock }) => {
     );
 };
 
-export const CompactPostCard = ({ post, tagsmock }) => {
-    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
+export const CompactPostCard = ({ post, tagsfetch }) => {
+    const tags = post.tags.map(id => tagsfetch[id]).filter(Boolean);
     const previewLength = 120;
 
     return (
-        <Link to={`/blog/${post.slug}`} className="grid grid-cols-1 md:grid-cols-2 gap-4 group">
+        <Link to={`/news/${post.slug}`} className="grid grid-cols-1 md:grid-cols-2 gap-4 group">
             {/* Image */}
-            <div className="w-full h-auto overflow-hidden shrink-0">
+            <div className="w-full h-auto overflow-hidden shrink-0 md:aspect-[4.2/3]">
                 <img
                     src={getPostImage(post)}
+                    loading="lazy"
                     alt={post.title.rendered}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
             </div>
 
-            {/* Content */}
+            {/* excerpt */}
             <div className="flex flex-col justify-between pb-2">
                 <div className="flex flex-col gap-2"><p className="text-xs text-gray-500">
                     {formatDate(post.date)}
@@ -98,7 +116,7 @@ export const CompactPostCard = ({ post, tagsmock }) => {
                     </div>
 
                     <p className="text-xs text-gray-600 leading-relaxed ">
-                        {truncate(stripHtml(post.content.rendered), previewLength)}
+                        {truncate(cleanExcerpt(post.excerpt.rendered), previewLength)}
                     </p>
                 </div>
 
@@ -117,12 +135,12 @@ export const CompactPostCard = ({ post, tagsmock }) => {
     );
 };
 
-const StandardPostCard = ({ post, tagsmock }) => {
-    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
+const StandardPostCard = ({ post, tagsfetch }) => {
+    const tags = post.tags.map(id => tagsfetch[id]).filter(Boolean);
     const previewLength = 420;
 
     return (
-        <Link to={`/blog/${post.slug}`} className="group">
+        <Link to={`/news/${post.slug}`} className="group">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
                 {/* Image */}
                 <div className="overflow-hidden lg:aspect-[2.5/1]">
@@ -133,7 +151,7 @@ const StandardPostCard = ({ post, tagsmock }) => {
                     />
                 </div>
 
-                {/* Content */}
+                {/* excerpt */}
                 <div className="flex flex-col justify-center gap-5">
                     <div className="flex flex-col gap-2"><p className="text-xs text-gray-500">
                         {formatDate(post.date)}
@@ -146,7 +164,7 @@ const StandardPostCard = ({ post, tagsmock }) => {
 
 
                         <p className="text-sm text-gray-600 text-justify leading-relaxed mr-10">
-                            {truncate(stripHtml(post.content.rendered), previewLength)}
+                            {truncate(cleanExcerpt(post.excerpt.rendered), previewLength)}
                         </p>
                     </div>
 
@@ -166,18 +184,11 @@ const StandardPostCard = ({ post, tagsmock }) => {
     );
 };
 
-export const PostCard = ({ post, tagsmock }) => {
-    const stripHtml = (html) => html.replace(/<[^>]+>/g, "");
+export const PostCard = ({ post, tagsfetch }) => {
     const truncate = (text, max) => (text.length > max ? text.slice(0, max) + "…" : text);
-    const tags = post.tags.map(id => tagsmock[id]).filter(Boolean);
-    const previewLength = 120;
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    }
 
     return (
-        <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full overflow-hidden">
+        <Link to={`/news/${post.slug}`} className="group flex flex-col h-full overflow-hidden">
             {/* Image */}
             <div className="relative w-full aspect-[4.5/3] overflow-hidden">
                 <img
@@ -187,7 +198,7 @@ export const PostCard = ({ post, tagsmock }) => {
                 />
             </div>
 
-            {/* Content */}
+            {/* excerpt */}
             <div className="py-4 flex flex-col justify-between gap-2">
                 {/* Date */}
                 <p className="text-xs text-gray-500">
@@ -202,13 +213,13 @@ export const PostCard = ({ post, tagsmock }) => {
 
                 {/* Excerpt */}
                 <p className="text-xs text-gray-600 leading-relaxed">
-                    {truncate(stripHtml(post.content.rendered), 120)}
+                    {truncate(cleanExcerpt(post.excerpt.rendered), 120)}
                 </p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 pt-1">
                     {post.tags.map(tagId => {
-                        const tag = tagsmock[tagId];
+                        const tag = tagsfetch[tagId];
                         if (!tag) return null;
                         return (
                             <span
@@ -225,8 +236,10 @@ export const PostCard = ({ post, tagsmock }) => {
     );
 };
 
-export const RecentPosts = () => {
-    const recent = posts
+export const RecentPosts = ({ posts, tagsfetch }) => {
+    if (!posts || posts.length < 4) return null;
+
+    const recent = [...posts]
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 4);
 
@@ -237,24 +250,24 @@ export const RecentPosts = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-[2fr_1.5fr] gap-6 overflow-hidden">
                 {/* Left column */}
-                <FeaturedPostCard post={featured} tagsmock={tagsmock} />
+                <FeaturedPostCard post={featured} tagsfetch={tagsfetch} />
 
                 {/* Right column */}
                 <div className="flex flex-col gap-6 md:mb-5">
-                    <CompactPostCard post={second} tagsmock={tagsmock} />
-                    <CompactPostCard post={third} tagsmock={tagsmock} />
+                    <CompactPostCard post={second} tagsfetch={tagsfetch} />
+                    <CompactPostCard post={third} tagsfetch={tagsfetch} />
                 </div>
             </div>
 
             {/* Bottom row */}
             <div className="grid grid-cols-1 gap-6 mt-6">
-                <StandardPostCard post={fourth} tagsmock={tagsmock} />
+                <StandardPostCard post={fourth} tagsfetch={tagsfetch} />
             </div>
         </section>
     );
 };
 
-const PostsGrid = ({ posts, tagsmock }) => {
+const PostsGrid = ({ posts, tagsfetch }) => {
     const POSTS_PER_PAGE = 3;
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -271,7 +284,7 @@ const PostsGrid = ({ posts, tagsmock }) => {
             {/* Grid of posts */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {currentPosts.map(post => (
-                    <PostCard key={post.id} post={post} tagsmock={tagsmock} />
+                    <PostCard key={post.id} post={post} tagsfetch={tagsfetch} />
                 ))}
             </div>
 
@@ -311,14 +324,30 @@ const PostsGrid = ({ posts, tagsmock }) => {
     );
 };
 
-
-
 const NewsPage = () => {
+    const [posts, setPosts] = useState([]);
+    const [tags, setTags] = useState({});
+
+    useEffect(() => {
+        async function load() {
+            const postsData = await fetchPostsList({ perPage: 10 });
+            const tagsData = await fetchTags();
+
+            console.log("POSTS:", postsData);
+            console.log("TAGS:", tagsData);
+
+            setPosts(postsData);
+            setTags(tagsData);
+        }
+
+        load();
+    }, []);
+
     return (
         <>
             <HeroNews />
-            <RecentPosts />
-            <PostsGrid posts={posts} tagsmock={tagsmock} />
+            <RecentPosts posts={posts} tagsfetch={tags} />
+            <PostsGrid posts={posts} tagsfetch={tags} />
         </>
     );
 };

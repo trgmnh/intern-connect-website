@@ -3,7 +3,6 @@ import { StarFill, Add, Minus, ArrowToRight, ArrowUpRight } from "./Icons";
 import { useState } from "react";
 import { useLang } from '../../context/LangContext';
 import { Link } from "react-router-dom";
-import { getTagColorById } from "../../data/tags";
 
 // for internship and destination cards
 export const Card = ({

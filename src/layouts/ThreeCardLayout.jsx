@@ -6,10 +6,10 @@ import { collaboration } from '../data/threecardlayout';
 import academicpartnership from '../assets/card/academicpartnership.jpg';
 import mobilityprogram from '../assets/card/mobilityprogram.jpg';
 import cobranding from '../assets/card/cobranding.jpg';
-import posts from '../data/post.mock.json'
-import { tagsmock } from '../data/tags.js';
 import { Button } from "../components/ui/Button.jsx";
 import { Link } from "react-router-dom";
+import { fetchPostsList, fetchTags } from "../api/wordpress";
+import { useEffect, useState } from "react";
 
 export const CollaborationFormats = () => {
     const { language } = useLang();
@@ -42,24 +42,51 @@ export const CollaborationFormats = () => {
 }
 
 export const HighlightedNews = () => {
-    const highlighted = posts.slice(0, 3);
+    const [posts, setPosts] = useState([]);
+    const [tags, setTags] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function load() {
+            try {
+                const [postsData, tagsData] = await Promise.all([
+                    fetchPostsList({ perPage: 3 }),
+                    fetchTags()
+                ]);
+
+                console.log("HIGHLIGHT POSTS:", postsData);
+                console.log("HIGHLIGHT TAGS:", tagsData);
+
+                setPosts(postsData);
+                setTags(tagsData);
+            } catch (e) {
+                console.error("HighlightedNews fetch error", e);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        load();
+    }, []);
+
+    if (loading) return null;
 
     return (
         <section className="flex flex-col items-center mb-6 md:mb-0 max-w-[1440px] mx-auto px-5">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1440px] mx-auto mb-4 px-5">
-                {highlighted.map(post => {
-                    const resolvedTags = post.tags
-                        .map(tagId => tagsmock[tagId])
-                        .filter(Boolean);
-
-                    return (
-                        <PostCard key={post.id} post={post} tagsmock={tagsmock} />
-                    );
-                })}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-4">
+                {posts.map(post => (
+                    <PostCard
+                        key={post.id}
+                        post={post}
+                        tagsfetch={tags}
+                    />
+                ))}
             </div>
-            <Link to="/news"><Button text="View All News" className="mx-auto" arrow={true} /></Link>
-        </section>
 
+            <Link to="/news">
+                <Button text="View All News" className="mx-auto" arrow />
+            </Link>
+        </section>
     );
 };
 
