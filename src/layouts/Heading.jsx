@@ -9,10 +9,10 @@ const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
             <h2 className="text-xs font-medium text-[#0057A0] tracking-[0.20em] uppercase">
                 {h2sub}
             </h2>
-            <h1 className="text-2xl font-semibold md:font-semibold text-[#21272A] tracking-normal">
+            <h1 className="text-3xl font-bold text-[#21272A] tracking-normal">
                 {h1main}
             </h1>
-            <div className="flex items-center w-full max-w-xs gap-2 mt-1">
+            {/* <div className="flex items-center w-full max-w-xs gap-2 mt-1">
                 <span className="flex-1 h-[0.5px] bg-gray-300"></span>
 
                 <Star className="w-3 h-3 bg-gray-300" width={14} />
@@ -20,11 +20,23 @@ const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
                 <Star className="w-3 h-3 bg-gray-300" width={14} />
 
                 <span className="flex-1 h-[0.5px] bg-gray-300"></span>
-            </div>
-            {paragraph && <p className="mt-4 max-w-3xl text-sm text-gray-600">{paragraph}</p>}
+            </div> */}
+            {paragraph && <p className="mt-2 max-w-3xl text-sm text-gray-600">{paragraph}</p>}
         </div>
     );
 }
+
+// const Heading = ({ h2sub, h1main, paragraph, bgColor = "white" }) => {
+//     return (
+//         <div className={`flex flex-col items-center gap-2 text-center cursor-default max-w-[1440px] mx-auto mt-6 py-6 bg-${bgColor}`}>
+//             <h3 className="text-3xl px-6 font-bold">{h1main}</h3>
+
+//             {/* Gradient line */}
+//             {/* <div className="h-[4px] w-32 mx-6 bg-blue-900" /> */}
+//         </div>
+//     );
+// }
+
 
 export const HeadingAboutUs = () => {
     const { language } = useLang();
@@ -102,7 +114,7 @@ export const HeadingOurProcess = () => {
 export const HeadingCommitments = () => {
     const { language } = useLang();
     const t = ServicesHeading.commitments[language] || {};
-    return <Heading h2sub={t.sub} h1main={t.main} />;
+    return <Heading h2sub={t.sub} h1main={t.main} bgColor="gray" />;
 }
 
 export const HeadingFeatures = () => {

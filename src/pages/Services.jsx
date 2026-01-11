@@ -20,7 +20,7 @@ const ServiceInclude = () => {
     const { language } = useLang();
     const service = serviceInclude[language];
     return (
-        <section className="max-w-[1440px] mx-auto px-5 mb-10">
+        <section className="max-w-[1440px] mx-auto px-5 my-10">
             <div className="relative grid grid-cols-1 md:grid-cols-[1fr_2fr] items-stretch gap-10">
                 <div className="h-full"><img src={aboutuspic} alt="About Us" className='object-cover h-full shadow-lg' /></div>
                 <div className='flex flex-col md:shadow-md md:border md:border-gray-200 p-6 md:p-4 bg-white'>
@@ -219,7 +219,7 @@ const Testimonials = () => {
 const ServicesPage = () => (
     <>
         <HeroServices />
-        <All.HeadingOurServices />
+        {/* <All.HeadingOurServices /> */}
         <ServiceInclude />
         <All.HeadingFeatures />
         <CollaborationFormats />

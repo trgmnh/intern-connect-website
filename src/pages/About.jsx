@@ -26,7 +26,7 @@ const AboutImage = () => {
 
     return (
         <section className=" w-full">
-            <div className="relative max-w-[1440px] mx-auto px-6">
+            <div className="relative max-w-[1440px] mx-auto px-6 mt-16">
                 <div className="w-full grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10">
 
                     {/* Image */}
@@ -140,7 +140,7 @@ const BoardOfDirectors = () => {
     const vyContent = MrsVi[language];
 
     return (
-        <section className="bg-white pb-4 px-7 sm:px-10 lg:px-16">
+        <section className="bg-white px-7 sm:px-10 lg:px-16">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12">
 
                 {/* Mrs. Vi */}
@@ -258,7 +258,7 @@ const Activities = () => {
     const { language } = useLang();
     const activity = activities[language] || [];
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch lg:grid mb-20 px-5">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch lg:grid my-20 px-5">
             <Carousel
                 images={[
                     slide1,
@@ -301,7 +301,7 @@ const Activities = () => {
 const AboutPage = () => (
     <>
         <HeroAbout />
-        <HeadingAboutUs />
+        {/* <HeadingAboutUs /> */}
         <AboutImage />
         <VisionMission />
         <HeadingCoreValues />
@@ -311,7 +311,7 @@ const AboutPage = () => (
         <HeadingBOD />
         <BoardOfDirectors />
 
-        <HeadingActivities />
+        {/* <HeadingActivities /> */}
         <Activities />
         <BannerService />
 

@@ -67,4 +67,3 @@ export async function fetchTags() {
     );
 }
 
-const API_BASE = "https://YOUR-WP-DOMAIN/wp-json/wp/v2";

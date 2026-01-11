@@ -17,7 +17,8 @@ export const Card = ({
             <div
                 className={`
                 group bg-white h-full border border-gray-200 shadow-md
-                hover:shadow-xl transition-shadow
+                hover:shadow-xl transition-shadow duration-300
+                rounded-md
                 flex flex-col overflow-hidden
                 ${pointer ? "cursor-pointer" : ""}
             `}

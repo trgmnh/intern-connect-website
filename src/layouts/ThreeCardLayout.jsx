@@ -41,7 +41,7 @@ export const CollaborationFormats = () => {
     );
 }
 
-export const HighlightedNews = () => {
+export const HighlightedNews = ({ excludeId }) => {
     const [posts, setPosts] = useState([]);
     const [tags, setTags] = useState({});
     const [loading, setLoading] = useState(true);
@@ -50,12 +50,12 @@ export const HighlightedNews = () => {
         async function load() {
             try {
                 const [postsData, tagsData] = await Promise.all([
-                    fetchPostsList({ perPage: 3 }),
-                    fetchTags()
+                    fetchPostsList({
+                        perPage: 3,
+                        exclude: excludeId,
+                    }),
+                    fetchTags(),
                 ]);
-
-                console.log("HIGHLIGHT POSTS:", postsData);
-                console.log("HIGHLIGHT TAGS:", tagsData);
 
                 setPosts(postsData);
                 setTags(tagsData);
@@ -67,13 +67,13 @@ export const HighlightedNews = () => {
         }
 
         load();
-    }, []);
+    }, [excludeId]);
 
     if (loading) return null;
 
     return (
-        <section className="flex flex-col items-center mb-6 md:mb-0 max-w-[1440px] mx-auto px-5">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-4">
+        <section className="flex flex-col items-center mb-6 md:mb-10 mx-auto w-full px-5 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-4 max-w-[1440px] mx-auto">
                 {posts.map(post => (
                     <PostCard
                         key={post.id}

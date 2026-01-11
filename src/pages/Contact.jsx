@@ -1,26 +1,67 @@
-import React from "react";
-import { useLang } from '../context/LangContext';
-import logo from '../assets/logo.png';
-import { Mail, Phone, Location, Facebook, Instagram, TikTok } from '../components/ui/Icons';
+import React, { useCallback, useState } from "react";
+import { useLang } from "../context/LangContext";
+import logo from "../assets/logo.png";
+import {
+    Mail,
+    Phone,
+    Location,
+    Facebook,
+    Instagram,
+    TikTok,
+} from "../components/ui/Icons";
 import { HeroContact } from "../layouts/Hero";
-import { contact } from '../data/contactus';
+import { contact } from "../data/contactus";
 
 export const ContactUsPage = () => {
     const { language } = useLang();
-    const contactUsContent = contact[language] || [];
-    // useEffect(() => {
-    //     document.getElementById("contact")?.scrollIntoView({
-    //         behavior: "smooth",
-    //         timeline: 1000,
-    //     });
-    // }, []);
-    return (
-        <section id="contact" className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1440px] pt-8 lg:pt-20 mx-auto mb-20">
-            <div className="relative z-10  grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 mx-5 md:shadow-md">
-                <div className="flex flex-col justify-between gap-6
-                items-center md:items-start
-                md:border md:border-gray-200 md:shadow-xl md:py-14 md:px-12">
+    const contactUsContent = contact[language] || {};
+    const [loading, setLoading] = useState(false);
 
+    const handleSubmit = useCallback(async (e) => {
+        e.preventDefault();
+        if (loading) return;
+
+        setLoading(true);
+
+        try {
+            const formData = new FormData(e.currentTarget);
+            const payload = Object.fromEntries(formData.entries());
+
+            const res = await fetch(
+                "https://internconnectvn.com/wp-json/contact/v1/send",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                }
+            );
+
+            if (!res.ok) throw new Error("Network error");
+
+            const result = await res.json();
+
+            if (result?.success) {
+                alert("Sent");
+                e.currentTarget.reset();
+            } else {
+                alert("Failed");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Server error");
+        } finally {
+            setLoading(false);
+        }
+    }, [loading]);
+
+    return (
+        <section
+            id="contact"
+            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1440px] pt-8 lg:pt-20 mx-auto mb-20"
+        >
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 mx-5 md:shadow-md">
+                {/* LEFT */}
+                <div className="flex flex-col justify-between gap-6 items-center md:items-start md:border md:border-gray-200 md:shadow-xl md:py-14 md:px-12">
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
                         <img
                             src={logo}
@@ -31,22 +72,19 @@ export const ContactUsPage = () => {
                         <h1 className="text-2xl font-semibold my-3">
                             {contactUsContent.heading}
                         </h1>
-                        <p className="text-md lg:text-sm text-[#5C6370] mb-2 text-center md:text-left">
+                        <p className="text-md lg:text-sm text-[#5C6370] mb-2">
                             {contactUsContent.subheading}
                         </p>
                     </div>
 
-                    <div className="flex flex-col text-[#5C6370] gap-8
-                  items-center md:items-start
-                  text-center md:text-left">
-
+                    <div className="flex flex-col text-[#5C6370] gap-8 items-center md:items-start text-center md:text-left">
                         {/* Email */}
-                        <div className="flex flex-col items-center md:items-start gap-4 pt-4 text-[#5C6370] w-full">
-                            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 w-full min-w-0">
+                        <div className="flex flex-col items-center md:items-start gap-4 pt-4 w-full">
+                            <div className="flex flex-col md:flex-row gap-4 w-full min-w-0">
                                 <Mail className="w-6 md:w-3 h-auto shrink-0" />
                                 <a
                                     href="mailto:recruitmentmanager@internconnectvn.com"
-                                    className="text-md text-center md:text-left break-all break-words hover:underline min-w-0"
+                                    className="text-md break-all hover:underline min-w-0"
                                 >
                                     recruitmentmanager@internconnectvn.com
                                 </a>
@@ -54,10 +92,12 @@ export const ContactUsPage = () => {
                         </div>
 
                         {/* Phone */}
-                        <a href="tel:+84376884053"
-                            className="flex flex-col items-center md:flex-row gap-4 w-full">
-                            <Phone className="w-5 h-5 shrink-0 text-[#5C6370]" />
-                            <span className="text-md md:text-sm break-words">
+                        <a
+                            href="tel:+84376884053"
+                            className="flex flex-col md:flex-row gap-4 w-full"
+                        >
+                            <Phone className="w-5 h-5 shrink-0" />
+                            <span className="text-md md:text-sm">
                                 {contactUsContent.phone}
                             </span>
                         </a>
@@ -67,106 +107,144 @@ export const ContactUsPage = () => {
                             href="https://maps.app.goo.gl/KdU4yuPejwF8AkuG9"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col items-center md:flex-row gap-4 w-full md:px-0"
+                            className="flex flex-col md:flex-row gap-4 w-full"
                         >
                             <Location className="w-5 h-5 shrink-0" />
-                            <p className="text-md md:text-sm leading-normal break-words">
+                            <p className="text-md md:text-sm">
                                 {contactUsContent.address}
                             </p>
                         </a>
-
                     </div>
-                    <div className="w-full">
-                        <div className="w-full py-4">
-                            <div className="flex justify-center md:justify-start align-middle text-[#5C6370] gap-4">
-                                <a href="https://www.facebook.com/profile.php?id=61581832680507"
-                                    aria-label="Facebook"
-                                    target="_blank"
-                                    rel="noopener noreferrer" className="cursor-pointer hover:opacity-80">
-                                    <div className='relative p-2 border-[#5C6370]/30 border-[1px] rounded-full'><Facebook width={16} height={16} className="w-6 h-6" /></div>
-                                </a>
-                                <a href="https://www.tiktok.com/@weareinternconnect"
-                                    aria-label="TikTok"
-                                    target="_blank"
-                                    rel="noopener noreferrer" className="cursor-pointer hover:opacity-80">
-                                    <div className='relative p-2 border-[#5C6370]/30 border-[1px] rounded-full'><TikTok width={16} height={16} className="w-6 h-6" /></div>
-                                </a>
-                                <a href="https://www.instagram.com/internconnectvn/"
-                                    aria-label="Instagram"
-                                    target="_blank"
-                                    rel="noopener noreferrer" className="cursor-pointer hover:opacity-80">
-                                    <div className='relative p-2 border-[#5C6370]/30 border-[1px] rounded-full'><Instagram width={16} height={16} className="w-6 h-6" /></div>
-                                </a>
-                            </div>
+
+                    {/* Socials */}
+                    <div className="w-full py-4">
+                        <div className="flex justify-center md:justify-start gap-4 text-[#5C6370]">
+                            <SocialLink
+                                href="https://www.facebook.com/profile.php?id=61581832680507"
+                                label="Facebook"
+                            >
+                                <Facebook className="w-6 h-6" />
+                            </SocialLink>
+                            <SocialLink
+                                href="https://www.tiktok.com/@weareinternconnect"
+                                label="TikTok"
+                            >
+                                <TikTok className="w-6 h-6" />
+                            </SocialLink>
+                            <SocialLink
+                                href="https://www.instagram.com/internconnectvn/"
+                                label="Instagram"
+                            >
+                                <Instagram className="w-6 h-6" />
+                            </SocialLink>
                         </div>
                     </div>
                 </div>
 
-                <span className="flex md:hidden w-[90%] my-10 mx-auto h-[0.5px] bg-gray-300"></span>
+                <span className="flex md:hidden w-[90%] my-10 mx-auto h-[0.5px] bg-gray-300" />
 
-                <div class="flex items-center justify-center">
-                    <div class="w-full max-w-2xl bg-white p-4 md:p-10">
-                        <form class="space-y-6">
+                {/* RIGHT */}
+                <div className="flex items-center justify-center">
+                    <div className="w-full max-w-2xl bg-white p-4 md:p-10">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            <NameFields content={contactUsContent} language={language} />
 
-                            <div class="flex flex-col md:flex-row gap-6">
+                            <Input
+                                label={contactUsContent.form.email}
+                                name="email"
+                                type="email"
+                                placeholder={contactUsContent.form.emailPlaceholder}
+                            />
 
-                                {language == "en" ? (
-                                    <>
-                                        <div class="flex-1">
-                                            <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.firstName}</label>
-                                            <input name="firstName" type="text" placeholder="John" class="w-full bg-[#f1f4f9] border-none p-4 text-gray-500 text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
-                                        </div>
-                                        <div class="flex-1">
-                                            <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.lastName}</label>
-                                            <input name="lastName" type="text" placeholder="Doe" class="w-full bg-[#f1f4f9] border-none p-4 text-gray-500 text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
-                                        </div>
-                                    </>) : (
-                                    <>
-                                        <div class="flex-1">
-                                            <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.lastName}</label>
-                                            <input name="lastName" type="text" placeholder="Nguyen Van" class="w-full bg-[#f1f4f9] border-none p-4 text-gray-500 text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
-                                        </div>
-                                        <div class="flex-1">
-                                            <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.firstName}</label>
-                                            <input name="firstName" type="text" placeholder="A" class="w-full bg-[#f1f4f9] border-none p-4 text-gray-500 text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-                            <div>
-                                <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.email}</label>
-                                <input type="email" placeholder={contactUsContent.form.emailPlaceholder} className="w-full bg-[#f1f4f9] text-sm border-none p-4 text-gray-500 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
-                            </div>
+                            <Input
+                                label={contactUsContent.form.phone}
+                                name="phone"
+                                type="tel"
+                                placeholder={contactUsContent.form.phonePlaceholder}
+                            />
 
                             <div>
-                                <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.phone}</label>
-                                <input type="tel" placeholder={contactUsContent.form.phonePlaceholder} className="w-full bg-[#f1f4f9] text-sm border-none p-4 text-gray-500 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none"></input>
+                                <label className="block text-gray-600 text-sm font-medium mb-2">
+                                    {contactUsContent.form.message}
+                                </label>
+                                <textarea
+                                    rows="4"
+                                    name="message"
+                                    placeholder={contactUsContent.form.messagePlaceholder}
+                                    className="w-full bg-[#f1f4f9] text-sm p-4 text-gray-500 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                                />
                             </div>
 
-                            <div>
-                                <label class="block text-gray-600 text-sm font-medium mb-2">{contactUsContent.form.message}</label>
-                                <textarea rows="4" placeholder={contactUsContent.form.messagePlaceholder} className="w-full bg-[#f1f4f9] text-sm border-none p-4 text-gray-500 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
-                            </div>
-
-                            <div class="flex justify-center md:justify-end pt-4">
-                                <button type="submit" class="border-[3px] w-full  bg-[#004a8d] hover:bg-[#003974] text-white text-md font-semibold py-4 px-10 transition-colors duration-200">
-                                    {contactUsContent.form.submit}
+                            <div className="flex justify-center md:justify-end pt-4">
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="border-[3px] w-full bg-[#004a8d] hover:bg-[#003974] disabled:opacity-60 text-white text-md font-semibold py-4 px-10 transition-colors"
+                                >
+                                    {loading ? "Sending..." : contactUsContent.form.submit}
                                 </button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div >
-        </section >
+            </div>
+        </section>
     );
-}
+};
 
+/* ---------- Helpers (no design impact) ---------- */
+
+const SocialLink = ({ href, label, children }) => (
+    <a
+        href={href}
+        aria-label={label}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cursor-pointer hover:opacity-80"
+    >
+        <div className="p-2 border-[#5C6370]/30 border rounded-full">
+            {children}
+        </div>
+    </a>
+);
+
+const Input = ({ label, ...props }) => (
+    <div>
+        <label className="block text-gray-600 text-sm font-medium mb-2">
+            {label}
+        </label>
+        <input
+            {...props}
+            required
+            className="w-full bg-[#f1f4f9] border-none p-4 text-gray-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+    </div>
+);
+
+const NameFields = ({ content, language }) => {
+    const isEN = language === "en";
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Input
+                name="firstName"
+                label={isEN ? content.form.firstName : content.form.lastName}
+                placeholder={isEN ? "John" : "Nguyen Van"}
+            />
+            <Input
+                name="lastName"
+                label={isEN ? content.form.lastName : content.form.firstName}
+                placeholder={isEN ? "Doe" : "A"}
+            />
+        </div>
+    );
+};
+
+/* ---------- Page ---------- */
 
 const ContactPage = () => (
     <>
         <HeroContact />
         <ContactUsPage />
-        {/* Add more sections if needed */}
     </>
 );
 

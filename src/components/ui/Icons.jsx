@@ -29,13 +29,15 @@ export const Mail = ({ width = "16", height = "16", className = baseClass }) => 
   </svg>
 );
 
-export const Phone = ({ width = "16", height = "16", className = baseClass }) => (
+export const Phone = ({ width = 16, height = 16, className = baseClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
     fill="currentColor"
     className={className}
     aria-hidden="true"
+    width={width}
+    height={height}
   >
     <path
       fillRule="evenodd"

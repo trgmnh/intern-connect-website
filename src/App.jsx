@@ -8,6 +8,7 @@ import ServicesPage from "./pages/Services";
 import NewsPage from "./pages/News";
 import ContactPage from "./pages/Contact";
 import BlogPostPage from "./pages/BlogPostPage"; // <-- page for single post
+import FloatingContactCTA from "./components/ui/FloatingCTA";
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
           <Route path="/news/:slug" element={<BlogPostPage />} />
         </Routes>
       </main>
-
+      <FloatingContactCTA />
       <Footer />
     </div>
   );

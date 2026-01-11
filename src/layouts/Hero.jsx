@@ -9,6 +9,7 @@ import { useLang } from '../context/LangContext';
 import { About, Home, Sections } from '../data/hero_content';
 import { Link } from "react-router-dom";
 import { Star, StarFill } from '../components/ui/Icons';
+import { LogoHotel } from './LogoHotel';
 
 
 export const HeroHome = () => {
@@ -40,6 +41,7 @@ export const HeroHome = () => {
                 <p className="font-regular text-sm pb-1">{home.paragraph}</p>
                 <Link to="/services"><ButtonTransparent text={home.button} /></Link>
             </div>
+
         </section>
     );
 };

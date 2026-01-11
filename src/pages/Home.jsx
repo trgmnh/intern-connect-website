@@ -141,16 +141,13 @@ const HomePage = () => (
         <Destinations />
         <HeadingInternships />
         <Internships />
-        <BlogBanner />
+        <ContactUsPage />
         <HeadingNews />
         <HighlightedNews />
-        <ContactUsPage />
-
         <BannerService />
         <AboutHome />
         <HeadingChooseUs />
         <WhyChooseUs />
-        <BannerContact />
         {/* Add more sections if needed */}
     </>
 );
