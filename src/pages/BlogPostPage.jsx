@@ -44,7 +44,10 @@ const BlogPostPage = () => {
         async function load() {
             try {
                 setLoading(true);
-                const data = await fetchPostBySlug(slug);
+                setError(null);
+
+                const data = await fetchPostBySlug(slug, language);
+
                 if (!data) throw new Error("Post not found");
                 if (mounted) setPost(data);
             } catch (err) {
@@ -56,7 +59,7 @@ const BlogPostPage = () => {
 
         load();
         return () => (mounted = false);
-    }, [slug]);
+    }, [slug, language]);
 
     return (
         <main>

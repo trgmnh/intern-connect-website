@@ -1,13 +1,18 @@
 const WP_BASE = "https://internconnectvn.com/wp-json/wp/v2";
 
+/**
+ * Fetch posts list by language
+ */
 export async function fetchPostsList({
     page = 1,
     perPage = 6,
+    lang = "en",
 } = {}) {
     const url =
         `${WP_BASE}/posts` +
         `?page=${page}` +
         `&per_page=${perPage}` +
+        `&lang=${lang}` +
         `&_embed` +
         `&_fields=` +
         [
@@ -26,10 +31,14 @@ export async function fetchPostsList({
     return res.json();
 }
 
-export async function fetchPostBySlug(slug) {
+/**
+ * Fetch single post by slug + language
+ */
+export async function fetchPostBySlug(slug, lang = "en") {
     const url =
         `${WP_BASE}/posts` +
         `?slug=${slug}` +
+        `&lang=${lang}` +
         `&_embed` +
         `&_fields=` +
         [
@@ -49,7 +58,9 @@ export async function fetchPostBySlug(slug) {
     return posts[0] || null;
 }
 
-
+/**
+ * Tags are shared across languages (Polylang default)
+ */
 export async function fetchTags() {
     const url =
         `${WP_BASE}/tags` +
@@ -60,10 +71,5 @@ export async function fetchTags() {
     if (!res.ok) throw new Error("Failed to fetch tags");
 
     const tags = await res.json();
-
-    // Normalize into lookup map
-    return Object.fromEntries(
-        tags.map(tag => [tag.id, tag])
-    );
+    return Object.fromEntries(tags.map(tag => [tag.id, tag]));
 }
-

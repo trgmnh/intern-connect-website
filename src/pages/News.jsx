@@ -357,6 +357,7 @@ const NewsPage = () => {
     const [tags, setTags] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { language } = useLang();
 
     useEffect(() => {
         let mounted = true;
@@ -366,7 +367,7 @@ const NewsPage = () => {
                 setLoading(true);
 
                 const [postsData, tagsData] = await Promise.all([
-                    fetchPostsList({ perPage: 6 }),
+                    fetchPostsList({ perPage: 6, lang: language }),
                     fetchTags()
                 ]);
 
@@ -383,7 +384,7 @@ const NewsPage = () => {
 
         load();
         return () => (mounted = false);
-    }, []);
+    }, [language]);
 
     return (
         <>
