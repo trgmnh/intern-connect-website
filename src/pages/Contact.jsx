@@ -57,9 +57,9 @@ export const ContactUsPage = () => {
     return (
         <section
             id="contact"
-            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1440px] pt-8 lg:pt-20 mx-auto mb-20"
+            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1380px] mx-auto py-16"
         >
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 mx-5 md:shadow-md">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 md:shadow-md">
                 {/* LEFT */}
                 <div className="flex flex-col justify-between gap-6 items-center md:items-start md:border md:border-gray-200 md:shadow-xl md:py-14 md:px-12">
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
@@ -77,14 +77,14 @@ export const ContactUsPage = () => {
                         </p>
                     </div>
 
-                    <div className="flex flex-col text-[#5C6370] gap-8 items-center md:items-start text-center md:text-left">
+                    <div className="flex flex-col text-[#5C6370] gap-8 items-center md:items-start text-left px-5 md:px-0 w-full md:max-w-md">
                         {/* Email */}
                         <div className="flex flex-col items-center md:items-start gap-4 pt-4 w-full">
-                            <div className="flex flex-col md:flex-row gap-4 w-full min-w-0">
-                                <Mail className="w-6 md:w-3 h-auto shrink-0" />
+                            <div className="flex flex-row gap-4 w-full min-w-0">
+                                <Mail className="w-5 h-5 shrink-0" />
                                 <a
                                     href="mailto:recruitmentmanager@internconnectvn.com"
-                                    className="text-md break-all hover:underline min-w-0"
+                                    className="text-md md:text-sm break-all hover:underline min-w-0"
                                 >
                                     recruitmentmanager@internconnectvn.com
                                 </a>
@@ -94,7 +94,7 @@ export const ContactUsPage = () => {
                         {/* Phone */}
                         <a
                             href="tel:+84376884053"
-                            className="flex flex-col md:flex-row gap-4 w-full"
+                            className="flex flex-row gap-4 w-full"
                         >
                             <Phone className="w-5 h-5 shrink-0" />
                             <span className="text-md md:text-sm">
@@ -107,7 +107,7 @@ export const ContactUsPage = () => {
                             href="https://maps.app.goo.gl/KdU4yuPejwF8AkuG9"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col md:flex-row gap-4 w-full"
+                            className="flex flex-row gap-4 w-full"
                         >
                             <Location className="w-5 h-5 shrink-0" />
                             <p className="text-md md:text-sm">
@@ -144,8 +144,8 @@ export const ContactUsPage = () => {
                 <span className="flex md:hidden w-[90%] my-10 mx-auto h-[0.5px] bg-gray-300" />
 
                 {/* RIGHT */}
-                <div className="flex items-center justify-center">
-                    <div className="w-full max-w-2xl bg-white p-4 md:p-10">
+                <div className="flex items-center justify-center px-5 md:px-0">
+                    <div className="w-full max-w-2xl bg-white">
                         <form className="space-y-6" onSubmit={handleSubmit}>
                             <NameFields content={contactUsContent} language={language} />
 

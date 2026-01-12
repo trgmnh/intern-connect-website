@@ -15,15 +15,16 @@ import aboutuspic from '../assets/card/aboutuspic.jpeg';
 import { Button } from '../components/ui/Button';
 import { FrequentAskedQuestionCard } from '../components/ui/Cards';
 import { Link } from "react-router-dom";
+import slide1 from '../assets/carousel/slide1.jpg';
 
 const ServiceInclude = () => {
     const { language } = useLang();
     const service = serviceInclude[language];
     return (
         <section className="max-w-[1440px] mx-auto px-5 my-10">
-            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_2fr] items-stretch gap-10">
-                <div className="h-full"><img src={aboutuspic} alt="About Us" className='object-cover h-full shadow-lg' /></div>
-                <div className='flex flex-col md:shadow-md md:border md:border-gray-200 p-6 md:p-4 bg-white'>
+            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_2fr] items-stretch md:gap-10 ">
+                <div className="h-full"><img src={slide1} alt="About Us" className='object-cover h-full shadow-lg' /></div>
+                <div className='flex flex-col md:shadow-md md:border md:border-gray-200 py-6 md:p-4 bg-white'>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-2 ">
                         {service.map((item) => {
                             const Icon = item.icon;
@@ -49,7 +50,7 @@ const ServiceInclude = () => {
                             );
                         })}
                     </div>
-                    <div className="flex justify-center my-6">
+                    <div className="flex justify-center mt-10 md:my-5">
                         <Link to="/contact"><Button text={language === "en" ? "Talk to Our Team" : "Liên hệ Ngay"} arrow={true} /></Link>
                     </div>
                 </div>

@@ -15,6 +15,9 @@ export const destinations = {
         vietnam: {
             title: "Vietnam",
             description: "Immerse yourself in a rapidly growing market with diverse opportunities."
+        },
+        cta: {
+            link: "Discover more"
         }
     },
     vi: {
@@ -33,6 +36,9 @@ export const destinations = {
         vietnam: {
             title: "Việt Nam",
             description: "Hòa mình vào thị trường phát triển nhanh với nhiều cơ hội đa dạng."
+        },
+        cta: {
+            link: "Tìm hiểu thêm"
         }
     }
 };
@@ -54,6 +60,9 @@ export const internships = {
         management: {
             title: "Management",
             description: "Learn hotel operations, leadership, and management practices firsthand."
+        },
+        cta: {
+            link: "Discover more"
         }
     },
     vi: {
@@ -72,6 +81,9 @@ export const internships = {
         management: {
             title: "Quản Lý",
             description: "Học hỏi về vận hành khách sạn, kỹ năng lãnh đạo và thực tiễn quản lý."
+        }
+        , cta: {
+            link: "Tìm hiểu thêm"
         }
     }
 };

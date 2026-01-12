@@ -11,7 +11,9 @@ export const Card = ({
     description,
     link,
     pointer = false,
+    cta
 }) => {
+    const { languague } = useLang();
     return (
         <Link to={link} >
             <div
@@ -56,7 +58,7 @@ export const Card = ({
                             text-blue-700 font-semibold hover:underline 
                         "
                         >
-                            Learn more
+                            {cta}
                             <ArrowToRight className="w-3 h-3" width={12} />
                         </a>
                     )}

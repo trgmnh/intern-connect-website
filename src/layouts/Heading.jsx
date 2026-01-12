@@ -6,7 +6,7 @@ import { Star } from '../components/ui/Icons';
 const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
     return (
         <div className={`flex flex-col items-center gap-1 py-8 px-5 text-center cursor-default ${bgColor}`}>
-            <h2 className="text-xs font-medium text-[#0057A0] tracking-[0.20em] uppercase">
+            <h2 className="text-sm font-medium text-[#0057A0] tracking-[0.20em] uppercase">
                 {h2sub}
             </h2>
             <h1 className="text-3xl font-bold text-[#21272A] tracking-normal">

@@ -14,7 +14,7 @@ const NavLink = ({ to, children }) => (
     to={to}
     className="
       relative px-1 py-2 whitespace-nowrap
-      text-xs text-[#575757] font-[500]
+      text-sm text-[#575757] font-[500]
       transition-colors hover:text-black
       after:content-['']
       after:absolute after:left-1/2 after:-translate-x-1/2
@@ -40,7 +40,7 @@ const Navbar = () => {
     <>
       <nav className="w-full font-display">
         {/* Top Bar */}
-        <div className="bg-gradient-to-r from-[#0057A0] via-[#7b3a5d] to-[#d62828] text-white py-0 px-4 md:px-10 flex flex-wrap justify-between items-center text-sm">
+        <div className="hidden md:flex bg-gradient-to-r from-[#0057A0] via-[#7b3a5d] to-[#d62828] text-white px-4 py-[2px] md:px-10 flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="mailto:recruitmentmanager@internconnectvn.com" className="flex items-center gap-2 hover:underline">
               <Mail className="w-3 h-3" />
@@ -66,15 +66,15 @@ const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="bg-white py-1 px-4 md:px-10 shadow-sm">
+        <div className="bg-white py-2 px-4 md:px-10 shadow-sm">
           <div className="flex items-center justify-between md:grid md:grid-cols-3">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="logo" className="h-11 w-auto" />
+              <img src={logo} alt="logo" className="h-12 w-auto" />
             </Link>
 
             {/* Menu (true center) */}
-            <div className="hidden md:flex justify-center gap-8">
+            <div className="hidden md:flex justify-center gap-10 ">
               <NavLink to="/">{t.nav.home}</NavLink>
               <NavLink to="/about">{t.nav.about}</NavLink>
               <NavLink to="/services">{t.nav.services}</NavLink>
@@ -107,24 +107,23 @@ const Navbar = () => {
                   >
                     {language !== "en" && (
                       <button onClick={() => setLanguage("en")} className="w-full p-1 hover:bg-gray-100">
-                        <img src={usa_icon} className="w-full h-4" />
+                        <img src={usa_icon} className="w-full h-6" />
                       </button>
                     )}
 
                     {language !== "vi" && (
                       <button onClick={() => setLanguage("vi")} className="w-full p-1 hover:bg-gray-100">
-                        <img src={vietnam_icon} className="w-full h-4" />
+                        <img src={vietnam_icon} className="w-full h-6" />
                       </button>
                     )}
                   </div>
                 </div>
 
-
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center h-9 w-28 bg-gradient-to-tr from-[#0057A0] to-[#d62828] text-xs text-[#d62828] font-[600] p-[2px]"
+                  className="flex items-center justify-center h-10 w-auto bg-gradient-to-tr from-[#0057A0] to-[#d62828] text-sm text-[#d62828] font-[600] p-[3px]"
                 >
-                  <div className="bg-white h-full w-full flex items-center justify-center pt-[1px] hover:bg-transparent hover:text-white transition-all">
+                  <div className="bg-white h-full w-full flex items-center justify-center px-4 pt-[1px] hover:bg-transparent hover:text-white transition-all">
                     {t.nav.contact}
                   </div>
                 </Link>
@@ -137,7 +136,7 @@ const Navbar = () => {
                 className="md:hidden p-2"
                 aria-label="Toggle menu"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
                   <path
                     fillRule="evenodd"
                     d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5"
@@ -182,7 +181,7 @@ const Navbar = () => {
           </div>
 
           {/* Nav Links */}
-          <nav className="flex flex-col gap-6 text-sm font-medium">
+          <nav className="flex flex-col gap-6 font-medium">
             <Link to="/" onClick={() => setOpen(false)}>{t.nav.home}</Link>
             <Link to="/about" onClick={() => setOpen(false)}>{t.nav.about}</Link>
             <Link to="/services" onClick={() => setOpen(false)}>{t.nav.services}</Link>

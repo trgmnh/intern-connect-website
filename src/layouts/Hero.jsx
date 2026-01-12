@@ -31,11 +31,11 @@ export const HeroHome = () => {
             {/* Content */}
             <div className="relative z-10 flex flex-col gap-6 items-center lg:items-start justify-center h-full text-white sm:pl-20 mx-5 max-w-2xl text-center lg:text-left">
                 <div className="flex justify-center md:justify-start items-center w-full max-w-xs gap-2 mt-2">
-                    <Star className="w-2 h-2 bg-gray-300" width={16} />
-                    <Star className="w-2 h-2 bg-gray-300" width={16} />
-                    <Star className="w-2 h-2 bg-gray-300" width={16} />
-                    <Star className="w-2 h-2 bg-gray-300" width={16} />
-                    <Star className="w-2 h-2 bg-gray-300" width={16} />
+                    <StarFill className="w-2 h-2 bg-gray-300" width={16} />
+                    <StarFill className="w-2 h-2 bg-gray-300" width={16} />
+                    <StarFill className="w-2 h-2 bg-gray-300" width={16} />
+                    <StarFill className="w-2 h-2 bg-gray-300" width={16} />
+                    <StarFill className="w-2 h-2 bg-gray-300" width={16} />
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-semibold capitalize">{home.title}</h1>
                 <p className="font-regular text-sm pb-1">{home.paragraph}</p>
@@ -70,11 +70,11 @@ export const HeroAbout = () => {
                 <h2 className="text-xs font-regular tracking-wider">{about.welcome}</h2>
                 <h1 className="text-2xl sm:text-3xl font-semibold">{about.title}</h1>
                 <div className="flex items-center gap-3">
-                    <Star className="w-5 h-5 bg-white" width={16} height={16} />
-                    <Star className="w-5 h-5 bg-white" width={16} height={16} />
-                    <Star className="w-5 h-5 bg-white" width={16} height={16} />
-                    <Star className="w-5 h-5 bg-white" width={16} height={16} />
-                    <Star className="w-5 h-5 bg-white" width={16} height={16} />
+                    <StarFill className="w-5 h-5 bg-white" width={16} height={16} />
+                    <StarFill className="w-5 h-5 bg-white" width={16} height={16} />
+                    <StarFill className="w-5 h-5 bg-white" width={16} height={16} />
+                    <StarFill className="w-5 h-5 bg-white" width={16} height={16} />
+                    <StarFill className="w-5 h-5 bg-white" width={16} height={16} />
                 </div>
                 <p className="font-regular text-sm max-w-[60ch] leading-normal">{about.paragraph}</p>
                 <Link to="/contact"><ButtonTransparent text={about.button} /></Link>

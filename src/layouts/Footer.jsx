@@ -31,34 +31,34 @@ const Footer = () => {
                         </div>
 
                         {/* Company Info */}
-                        <div className="flex flex-col justify-center items-center md:items-start w-full text-sm h-full px-16">
+                        <div className="flex flex-col justify-center items-start w-full text-sm h-full px-5 md:px-16">
 
                             {/* Logo */}
                             <img
                                 src={logo}
                                 alt="Company Logo"
-                                className="object-contain w-[72px] pb-5 mx-auto md:mx-0"
+                                className="object-contain w-[72px] pb-8 md:pb-5"
                             />
 
                             {/* Address */}
                             <a
                                 href="https://maps.app.goo.gl/KdU4yuPejwF8AkuG9"
                                 target="_blank"
-                                className="flex flex-col items-center md:flex-row md:items-start gap-4 text-[#5C6370] w-full"
+                                className="flex flex-row items-start gap-4 text-[#5C6370] w-full"
                             >
-                                <Location className="w-6 md:w-3 h-auto shrink-0 mt-1" />
-                                <p className="text-center md:text-left text-sm hover:underline">
+                                <Location className="w-4 md:w-3 h-auto shrink-0 mt-1" />
+                                <p className="text-left text-sm hover:underline">
                                     {t.footer.address}
                                 </p>
                             </a>
 
                             {/* Email */}
-                            <div className="flex flex-col items-center md:items-start gap-4 pt-4 text-[#5C6370] w-full">
-                                <div className="flex flex-col items-center md:flex-row md:items-center gap-4 w-full min-w-0">
-                                    <Mail className="w-6 md:w-3 h-auto shrink-0" />
+                            <div className="flex flex-col items-start gap-4 pt-4 text-[#5C6370] w-full">
+                                <div className="flex flex-row items-start gap-4 w-full min-w-0">
+                                    <Mail className="w-4 md:w-3 h-auto shrink-0 mt-1" />
                                     <a
                                         href="mailto:recruitmentmanager@internconnectvn.com"
-                                        className="text-sm text-center md:text-left break-all break-words hover:underline min-w-0"
+                                        className="text-sm text-left break-all break-words hover:underline min-w-0"
                                     >
                                         recruitmentmanager@internconnectvn.com
                                     </a>
@@ -68,10 +68,10 @@ const Footer = () => {
                             {/* Phone */}
                             <a
                                 href="tel:+84376884053"
-                                className="flex flex-col items-center md:flex-row md:items-center gap-4 pt-3 text-[#5C6370]"
+                                className="flex flex-row items-center gap-4 pt-3 text-[#5C6370]"
                             >
                                 <Phone className="w-6 md:w-3 h-auto shrink-0" />
-                                <span className="text-sm hover:underline">
+                                <span className="text-sm text-left hover:underline">
                                     +84 37 688 4053
                                 </span>
                             </a>

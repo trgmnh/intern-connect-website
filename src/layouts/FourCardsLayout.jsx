@@ -23,6 +23,7 @@ export const Destinations = () => {
                 description={destination.australia.description}
                 link="/australia"
                 pointer={true}
+                cta={destination.cta.link}
             />
             <Card
                 key="Thailand"
@@ -31,6 +32,7 @@ export const Destinations = () => {
                 description={destination.thailand.description}
                 link="/thailand"
                 pointer={true}
+                cta={destination.cta.link}
             />
             <Card
                 key="UAE"
@@ -39,6 +41,7 @@ export const Destinations = () => {
                 description={destination.uae.description}
                 link="/uae"
                 pointer={true}
+                cta={destination.cta.link}
             />
             <Card
                 key="Vietnam"
@@ -47,6 +50,7 @@ export const Destinations = () => {
                 description={destination.vietnam.description}
                 link="/vietnam"
                 pointer={true}
+                cta={destination.cta.link}
             />
         </div>
     );
@@ -64,6 +68,7 @@ export const Internships = () => {
                 description={internship.frontoffice.description}
                 link="#"
                 pointer={true}
+                cta={internship.cta.link}
             />
             <Card
                 key="Food & Beverage"
@@ -72,6 +77,7 @@ export const Internships = () => {
                 description={internship.fnb.description}
                 link="#"
                 pointer={true}
+                cta={internship.cta.link}
             />
             <Card
                 key="Culinary"
@@ -80,6 +86,7 @@ export const Internships = () => {
                 description={internship.culinary.description}
                 link="#"
                 pointer={true}
+                cta={internship.cta.link}
             />
             <Card
                 key="Management"
@@ -88,6 +95,7 @@ export const Internships = () => {
                 description={internship.management.description}
                 link="#"
                 pointer={true}
+                cta={internship.cta.link}
             />
         </div>
     );

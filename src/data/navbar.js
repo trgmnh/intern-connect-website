@@ -23,7 +23,7 @@ export const navbar = {
             about: "Về chúng tôi",
             services: "Dịch vụ",
             blog: "Tin tức",
-            contact: "Liên hệ"
+            contact: "Liên hệ ngay!"
         },
         footer: {
             address: "210 Huỳnh Văn Bánh, phường 11, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam",

@@ -45,6 +45,7 @@ export const HighlightedNews = ({ excludeId }) => {
     const [posts, setPosts] = useState([]);
     const [tags, setTags] = useState({});
     const [loading, setLoading] = useState(true);
+    const { language } = useLang();
 
     useEffect(() => {
         async function load() {
@@ -53,6 +54,7 @@ export const HighlightedNews = ({ excludeId }) => {
                     fetchPostsList({
                         perPage: 3,
                         exclude: excludeId,
+                        language: language,
                     }),
                     fetchTags(),
                 ]);
@@ -72,8 +74,8 @@ export const HighlightedNews = ({ excludeId }) => {
     if (loading) return null;
 
     return (
-        <section className="flex flex-col items-center mb-6 md:mb-10 mx-auto w-full px-5 py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-4 max-w-[1440px] mx-auto">
+        <section className="flex flex-col items-center mb-6 md:mb-10 mx-auto w-full px-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 max-w-[1440px] mx-auto">
                 {posts.map(post => (
                     <PostCard
                         key={post.id}

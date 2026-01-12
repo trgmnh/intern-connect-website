@@ -31,7 +31,7 @@ const formatDate = date =>
         year: "numeric",
     });
 
-const truncate = (text, max) =>
+export const truncate = (text, max) =>
     text.length > max ? text.slice(0, max) + "…" : text;
 
 const NewsSkeleton = () => {
