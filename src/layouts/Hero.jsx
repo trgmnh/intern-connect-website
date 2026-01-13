@@ -88,7 +88,7 @@ const HeroSection = ({ background, content }) => {
     const t = content[language];
 
     return (
-        <section className="relative w-full h-[30vh] md:h-[20vh] sm:h-[40vh] overflow-hidden">
+        <section className="relative w-full h-[30vh] md:h-[20vh] lg:h-[40vh]  overflow-hidden">
             {/* Background image */}
             <img
                 src={background}
