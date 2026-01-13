@@ -71,7 +71,7 @@ export const Card = ({
 export const TestimonialsCard = ({ name, role, location, content }) => {
     return (
         <div className="bg-white p-8 rounded-md shadow-md flex flex-col h-full border-[1px] border-gray-200">
-            <div className="flex items-center w-full max-w-xs gap-2 text-yellow-500 pb-1">
+            <div className="flex items-center w-full max-w-xs gap-2 text-yellow-500 pb-[6px]">
                 <StarFill className="w-3 h-3" width={16} />
                 <StarFill className="w-3 h-3" width={16} />
                 <StarFill className="w-3 h-3" width={16} />

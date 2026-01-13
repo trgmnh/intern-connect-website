@@ -194,7 +194,7 @@ export const ContactUsPage = () => {
 
 /* ---------- Helpers (no design impact) ---------- */
 
-const SocialLink = ({ href, label, children }) => (
+export const SocialLink = ({ href, label, children }) => (
     <a
         href={href}
         aria-label={label}

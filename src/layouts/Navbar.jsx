@@ -5,7 +5,7 @@ import usa_icon from "../assets/usa_icon.svg";
 import vietnam_icon from "../assets/vietnam_icon.svg";
 import { navbar } from "../data/navbar";
 import { useLang } from "../context/LangContext";
-import { Location, Mail, Phone, Facebook, TikTok, Instagram } from "../components/ui/Icons";
+import { Mail, Phone, Facebook, TikTok, Instagram, House, People, BriefCaseNoFill, NewsPaper } from "../components/ui/Icons";
 import ScrollToTop from "../libraries/ScrollToTop";
 
 
@@ -40,10 +40,10 @@ const Navbar = () => {
     <>
       <nav className="w-full font-display">
         {/* Top Bar */}
-        <div className="hidden md:flex bg-gradient-to-r from-[#0057A0] via-[#7b3a5d] to-[#d62828] text-white px-4 py-[2px] md:px-10 flex-wrap justify-between items-center text-sm">
+        <div className="hidden md:flex bg-gradient-to-r from-[#0057A0] via-[#7b3a5d] to-[#d62828] text-white px-4 py-[4px] md:px-10 flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="mailto:recruitmentmanager@internconnectvn.com" className="flex items-center gap-2 hover:underline">
-              <Mail className="w-3 h-3" />
+              <Mail className="w-4 md:w-3 h-auto" />
               <span className="hidden text-xs sm:inline">recruitmentmanager@internconnectvn.com</span>
             </a>
             <a href="tel:+84376884053" className="flex items-center gap-2 hover:underline">
@@ -66,7 +66,7 @@ const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="bg-white py-[5px] px-4 md:px-10 shadow-sm">
+        <div className="bg-white py-[5px] px-4 lg:px-10 shadow-sm">
           <div className="flex items-center justify-between md:grid md:grid-cols-3">
             {/* Logo */}
             <Link to="/" className="flex items-center">
@@ -85,43 +85,52 @@ const Navbar = () => {
             <div className="flex items-center justify-end gap-4">
               {/* Desktop CTA */}
               <div className="flex items-center gap-6 font-semibold">
-                <div className="relative hidden md:block group">
-                  {/* Current language */}
-                  <div className="w-6 h-4 overflow-hidden shadow-sm cursor-pointer">
-                    <img
-                      src={language === "en" ? usa_icon : vietnam_icon}
-                      alt="Language"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                <div className="flex items-center gap-3 font-semibold text-sm">
+                  {/* Left label */}
+                  <span className={language === "en" ? "text-gray-800" : "text-gray-400"}>
+                    EN
+                  </span>
 
-                  {/* Dropdown */}
-                  <div
+                  {/* Switch */}
+                  <button
+                    onClick={() => setLanguage(language === "en" ? "vi" : "en")}
                     className="
-                      absolute right-0 mt-2
-                      w-8 bg-white shadow-md rounded-sm
-                      opacity-0 invisible
-                      group-hover:opacity-100 group-hover:visible
-                      transition-all z-20
-                    "
+      relative w-16 h-8
+      bg-gray-200 rounded-full
+      shadow-inner
+      transition-colors
+    "
                   >
-                    {language !== "en" && (
-                      <button onClick={() => setLanguage("en")} className="w-full p-1 hover:bg-gray-100">
-                        <img src={usa_icon} className="w-full h-6" />
-                      </button>
-                    )}
+                    {/* Knob */}
+                    <span
+                      className={`
+        absolute top-1 left-1
+        w-6 h-6 rounded-full
+        bg-white shadow
+        flex items-center justify-center
+        transition-transform duration-300 ease-in-out
+        ${language === "vi" ? "translate-x-8" : "translate-x-0"}
+      `}
+                    >
+                      <img
+                        src={language === "en" ? usa_icon : vietnam_icon}
+                        alt="Language"
+                        className="w-6 h-6 rounded-full object-cover"
+                      />
+                    </span>
+                  </button>
 
-                    {language !== "vi" && (
-                      <button onClick={() => setLanguage("vi")} className="w-full p-1 hover:bg-gray-100">
-                        <img src={vietnam_icon} className="w-full h-6" />
-                      </button>
-                    )}
-                  </div>
+                  {/* Right label */}
+                  <span className={language === "vi" ? "text-gray-800" : "text-gray-400"}>
+                    VI
+                  </span>
                 </div>
+
+
 
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center h-10 w-auto bg-gradient-to-tr from-[#0057A0] to-[#d62828] text-sm text-[#d62828] font-[600] p-[3px]"
+                  className="hidden lg:flex items-center justify-center h-10 w-auto bg-gradient-to-tr from-[#0057A0] to-[#d62828] text-sm text-[#d62828] font-[600] p-[3px]"
                 >
                   <div className="bg-white h-full w-full flex items-center justify-center px-4 hover:bg-transparent hover:text-white transition-all">
                     {t.nav.contact}
@@ -133,7 +142,7 @@ const Navbar = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setOpen(!open)}
-                className="md:hidden p-2"
+                className="lg:hidden p-2"
                 aria-label="Toggle menu"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
@@ -163,8 +172,8 @@ const Navbar = () => {
       {/* Mobile Sidebar */}
       <div
         className={`
-    fixed top-0 right-0 z-50 h-full w-[300px]
-    bg-white shadow-xl
+    fixed top-0 right-0 z-50 h-full w-[320px]
+    bg-white shadow-xl rounded-l-md
     transform transition-transform duration-300
     ${open ? "translate-x-0" : "translate-x-full"}
     md:hidden
@@ -173,20 +182,85 @@ const Navbar = () => {
         <div className="flex flex-col h-full px-6 py-6 gap-8">
 
           {/* Header */}
-          <div className="flex justify-between items-center">
-            <img src={logo} alt="logo" className="h-10 w-auto" />
-            <button onClick={() => setOpen(false)} aria-label="Close menu">
+          <div className="flex items-center justify-between pb-6 border-b">
+            <img src={logo} alt="logo" className="h-12 w-auto" />
+
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              className="text-2xl text-gray-600 hover:text-black"
+            >
               ✕
             </button>
           </div>
 
           {/* Nav Links */}
-          <nav className="flex flex-col gap-6 font-medium">
-            <Link to="/" onClick={() => setOpen(false)}>{t.nav.home}</Link>
-            <Link to="/about" onClick={() => setOpen(false)}>{t.nav.about}</Link>
-            <Link to="/services" onClick={() => setOpen(false)}>{t.nav.services}</Link>
-            <Link to="/news" onClick={() => setOpen(false)}>{t.nav.blog}</Link>
+          <nav className=" flex flex-col gap-2">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="
+      flex items-center gap-5
+      px-2 py-4 rounded-xl
+      text-lg font-semibold
+      text-slate-800
+      hover:bg-slate-100
+      transition
+    "
+            >
+              <House className="w-7 h-7" />
+              {t.nav.home}
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="
+      flex items-center gap-5
+      px-2 py-4 rounded-xl
+      text-lg font-semibold
+      text-slate-800
+      hover:bg-slate-100
+      transition
+    "
+            >
+              <People className="w-7 h-7" />
+              {t.nav.about}
+            </Link>
+
+            <Link
+              to="/services"
+              onClick={() => setOpen(false)}
+              className="
+      flex items-center gap-5
+      px-2 py-4 rounded-xl
+      text-lg font-semibold
+      text-slate-800
+      hover:bg-slate-100
+      transition
+    "
+            >
+              <BriefCaseNoFill className="w-7 h-7" />
+              {t.nav.services}
+            </Link>
+
+            <Link
+              to="/news"
+              onClick={() => setOpen(false)}
+              className="
+      flex items-center gap-5
+      px-2 py-4 rounded-xl
+      text-lg font-semibold
+      text-slate-800
+      hover:bg-slate-100
+      transition
+    "
+            >
+              <NewsPaper className="w-7 h-7" />
+              {t.nav.blog}
+            </Link>
           </nav>
+
 
           {/* Language Switch */}
           <div className="mt-auto flex gap-4 items-center text-sm">
@@ -205,7 +279,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };

@@ -32,7 +32,7 @@ const FloatingContactCTA = () => {
                 className={`
           relative
           bg-white text-gray-800
-          text-sm font-regular
+          text-sm font-semibold
           px-4 py-2
           rounded-lg
           shadow-md
