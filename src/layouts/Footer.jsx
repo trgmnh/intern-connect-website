@@ -20,14 +20,8 @@ const Footer = () => {
 
                         {/* Google Map */}
                         <div className="hidden lg:block w-96 h-auto aspect-[4/3] overflow-hidden rounded-md shadow-sm">
-                            <iframe
-                                src="https://www.google.com/maps?q=Miles%20International%20Consultancy%20210%20Huynh%20Van%20Banh%20Ho%20Chi%20Minh&output=embed"
-                                width="100%"
-                                height="100%"
-                                className="w-full h-full border-0 "
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            />
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2589807781783!2d106.67381497316975!3d10.791465958919932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d558ed9c97%3A0xf00aa78a25b12a2c!2zMjQ3QS8yIEh14buzbmggVsSDbiBCw6FuaCwgUGjGsOG7nW5nIDExLCBQaMO6IE5odeG6rW4sIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1768272035233!5m2!1svi!2s" width="100%" height="100%" className="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>r
+
                         </div>
 
                         {/* Company Info */}
@@ -46,7 +40,7 @@ const Footer = () => {
                                 target="_blank"
                                 className="flex flex-row items-start gap-4 text-[#5C6370] w-full"
                             >
-                                <Location className="w-4 md:w-3 h-auto shrink-0 mt-1" />
+                                <Location className="w-4 h-auto shrink-0 mt-1" />
                                 <p className="text-left text-sm hover:underline">
                                     {t.footer.address}
                                 </p>
@@ -55,7 +49,7 @@ const Footer = () => {
                             {/* Email */}
                             <div className="flex flex-col items-start gap-4 pt-4 text-[#5C6370] w-full">
                                 <div className="flex flex-row items-start gap-4 w-full min-w-0">
-                                    <Mail className="w-4 md:w-3 h-auto shrink-0 mt-1" />
+                                    <Mail className="w-4 h-auto shrink-0 mt-1" />
                                     <a
                                         href="mailto:recruitmentmanager@internconnectvn.com"
                                         className="text-sm text-left break-all break-words hover:underline min-w-0"
@@ -70,7 +64,7 @@ const Footer = () => {
                                 href="tel:+84376884053"
                                 className="flex flex-row items-center gap-4 pt-3 text-[#5C6370]"
                             >
-                                <Phone className="w-6 md:w-3 h-auto shrink-0" />
+                                <Phone className="w-6 md:w-3 h-auto shrink-0 mt-1" />
                                 <span className="text-sm text-left hover:underline">
                                     +84 37 688 4053
                                 </span>

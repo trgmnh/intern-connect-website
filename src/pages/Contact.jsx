@@ -57,7 +57,7 @@ export const ContactUsPage = () => {
     return (
         <section
             id="contact"
-            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1380px] mx-auto py-16"
+            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1380px] mx-auto py-16 px-5 md:px-10 lg:px-20 mb-20"
         >
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 md:shadow-md">
                 {/* LEFT */}
@@ -144,7 +144,7 @@ export const ContactUsPage = () => {
                 <span className="flex md:hidden w-[90%] my-10 mx-auto h-[0.5px] bg-gray-300" />
 
                 {/* RIGHT */}
-                <div className="flex items-center justify-center px-5 md:px-0">
+                <div className="flex items-center justify-center px-5 md:px-10">
                     <div className="w-full max-w-2xl bg-white">
                         <form className="space-y-6" onSubmit={handleSubmit}>
                             <NameFields content={contactUsContent} language={language} />

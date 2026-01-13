@@ -21,7 +21,7 @@ export const Destinations = () => {
                 imageSrc={australiaImg}
                 title={destination.australia.title}
                 description={destination.australia.description}
-                link="/australia"
+                link="/contact"
                 pointer={true}
                 cta={destination.cta.link}
             />
@@ -30,7 +30,7 @@ export const Destinations = () => {
                 imageSrc={thailandImg}
                 title={destination.thailand.title}
                 description={destination.thailand.description}
-                link="/thailand"
+                link="/contact"
                 pointer={true}
                 cta={destination.cta.link}
             />
@@ -39,7 +39,7 @@ export const Destinations = () => {
                 imageSrc={uaeImg}
                 title={destination.uae.title}
                 description={destination.uae.description}
-                link="/uae"
+                link="/contact"
                 pointer={true}
                 cta={destination.cta.link}
             />
@@ -48,7 +48,7 @@ export const Destinations = () => {
                 imageSrc={vietnamImg}
                 title={destination.vietnam.title}
                 description={destination.vietnam.description}
-                link="/vietnam"
+                link="/contact"
                 pointer={true}
                 cta={destination.cta.link}
             />
@@ -66,7 +66,7 @@ export const Internships = () => {
                 imageSrc={frontofficeImg}
                 title={internship.frontoffice.title}
                 description={internship.frontoffice.description}
-                link="#"
+                link="/contact"
                 pointer={true}
                 cta={internship.cta.link}
             />
@@ -75,7 +75,7 @@ export const Internships = () => {
                 imageSrc={fnbImg}
                 title={internship.fnb.title}
                 description={internship.fnb.description}
-                link="#"
+                link="/contact"
                 pointer={true}
                 cta={internship.cta.link}
             />
@@ -84,7 +84,7 @@ export const Internships = () => {
                 imageSrc={culinaryImg}
                 title={internship.culinary.title}
                 description={internship.culinary.description}
-                link="#"
+                link="/contact"
                 pointer={true}
                 cta={internship.cta.link}
             />
@@ -93,7 +93,7 @@ export const Internships = () => {
                 imageSrc={managementImg}
                 title={internship.management.title}
                 description={internship.management.description}
-                link="#"
+                link="/contact"
                 pointer={true}
                 cta={internship.cta.link}
             />

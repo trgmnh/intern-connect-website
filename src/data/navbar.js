@@ -8,7 +8,7 @@ export const navbar = {
             contact: "Contact Us"
         },
         footer: {
-            address: "210 Huynh Van Banh, Ward 11, Phu Nhuan District, Ho Chi Minh City, Vietnam",
+            address: "247A/2 Huynh Van Banh, Ward 11, Phu Nhuan District, Ho Chi Minh City, Vietnam",
             main: "Main",
             explore: {
                 destination: "Destinations",
@@ -26,7 +26,7 @@ export const navbar = {
             contact: "Liên hệ ngay!"
         },
         footer: {
-            address: "210 Huỳnh Văn Bánh, phường 11, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam",
+            address: "247A/2 Huỳnh Văn Bánh, phường 11, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam",
             main: "Chung",
             explore: {
                 destination: "Điểm đến",

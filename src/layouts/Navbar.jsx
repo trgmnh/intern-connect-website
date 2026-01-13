@@ -66,7 +66,7 @@ const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="bg-white py-2 px-4 md:px-10 shadow-sm">
+        <div className="bg-white py-[5px] px-4 md:px-10 shadow-sm">
           <div className="flex items-center justify-between md:grid md:grid-cols-3">
             {/* Logo */}
             <Link to="/" className="flex items-center">
@@ -123,7 +123,7 @@ const Navbar = () => {
                   to="/contact"
                   className="flex items-center justify-center h-10 w-auto bg-gradient-to-tr from-[#0057A0] to-[#d62828] text-sm text-[#d62828] font-[600] p-[3px]"
                 >
-                  <div className="bg-white h-full w-full flex items-center justify-center px-4 pt-[1px] hover:bg-transparent hover:text-white transition-all">
+                  <div className="bg-white h-full w-full flex items-center justify-center px-4 hover:bg-transparent hover:text-white transition-all">
                     {t.nav.contact}
                   </div>
                 </Link>
