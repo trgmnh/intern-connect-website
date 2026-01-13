@@ -274,7 +274,7 @@ const Navbar = () => {
     "
             >
               <TelephoneNoFill className="w-7 h-7" />
-              {t.nav.contact}
+              {language === "en" ? "Contact" : "Liên hệ"}
             </Link>
           </nav>
 
