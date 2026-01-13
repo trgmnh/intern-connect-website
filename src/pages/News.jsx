@@ -60,7 +60,7 @@ export const FeaturedPostCard = ({ post, tagsfetch }) => {
         <Link to={`/news/${post.slug}`} className="group">
             <div className="flex flex-col gap-3 overflow-hidden">
                 {/* Image */}
-                <div className="overflow-hidden md:aspect-[3/1]">
+                <div className="overflow-hidden aspect-[4/3] md:aspect-[3/1]">
                     <img
                         src={getPostImage(post)}
                         alt={post.title.rendered}
@@ -112,7 +112,7 @@ export const CompactPostCard = ({ post, tagsfetch }) => {
     return (
         <Link to={`/news/${post.slug}`} className="grid grid-cols-1 md:grid-cols-2 gap-4 group">
             {/* Image */}
-            <div className="w-full h-auto overflow-hidden shrink-0 md:aspect-[4.2/3]">
+            <div className="w-full h-auto overflow-hidden shrink-0 aspect-[4/3] md:aspect-[4.2/3]">
                 <img
                     src={getPostImage(post)}
                     loading='lazy'
@@ -161,7 +161,7 @@ const StandardPostCard = ({ post, tagsfetch }) => {
         <Link to={`/news/${post.slug}`} className="group">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
                 {/* Image */}
-                <div className="overflow-hidden lg:aspect-[2.5/1]">
+                <div className="overflow-hidden aspect-[4/3] lg:aspect-[2.5/1]">
                     <img
                         src={getPostImage(post)}
                         alt={post.title.rendered}
