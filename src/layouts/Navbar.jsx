@@ -5,8 +5,9 @@ import usa_icon from "../assets/usa_icon.svg";
 import vietnam_icon from "../assets/vietnam_icon.svg";
 import { navbar } from "../data/navbar";
 import { useLang } from "../context/LangContext";
-import { Mail, Phone, Facebook, TikTok, Instagram, House, People, BriefCaseNoFill, NewsPaper } from "../components/ui/Icons";
+import { Mail, Phone, Facebook, TikTok, Instagram, House, People, BriefCaseNoFill, MegaPhone, TelephoneNoFill } from "../components/ui/Icons";
 import ScrollToTop from "../libraries/ScrollToTop";
+import { SocialLink } from "../pages/Contact";
 
 
 const NavLink = ({ to, children }) => (
@@ -182,7 +183,7 @@ const Navbar = () => {
         <div className="flex flex-col h-full px-6 py-6 gap-8">
 
           {/* Header */}
-          <div className="flex items-center justify-between pb-6 border-b">
+          <div className="flex items-center justify-between">
             <img src={logo} alt="logo" className="h-12 w-auto" />
 
             <button
@@ -256,28 +257,75 @@ const Navbar = () => {
       transition
     "
             >
-              <NewsPaper className="w-7 h-7" />
+              <MegaPhone className="w-7 h-7" />
               {t.nav.blog}
+            </Link>
+
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="
+      flex items-center gap-5
+      px-2 py-4 rounded-xl
+      text-lg font-semibold
+      text-slate-800
+      hover:bg-slate-100
+      transition
+    "
+            >
+              <TelephoneNoFill className="w-7 h-7" />
+              {t.nav.contact}
             </Link>
           </nav>
 
+          {/* Bottom Section */}
+          <div className="mt-auto flex flex-col gap-6">
+            {/* Social Links */}
+            <div className="flex gap-5 text-[#5C6370]">
+              <SocialLink
+                href="https://www.facebook.com/profile.php?id=61581832680507"
+                label="Facebook"
+              >
+                <Facebook className="w-6 h-6" />
+              </SocialLink>
 
-          {/* Language Switch */}
-          <div className="mt-auto flex gap-4 items-center text-sm">
-            <button
-              onClick={() => setLanguage("en")}
-              className={language === "en" ? "underline text-[#0057A0]" : ""}
-            >
-              English
-            </button>
-            <span className="text-gray-400">/</span>
-            <button
-              onClick={() => setLanguage("vi")}
-              className={language === "vi" ? "underline text-[#0057A0]" : ""}
-            >
-              Vietnamese
-            </button>
+              <SocialLink
+                href="https://www.tiktok.com/@weareinternconnect"
+                label="TikTok"
+              >
+                <TikTok className="w-6 h-6" />
+              </SocialLink>
+
+              <SocialLink
+                href="https://www.instagram.com/internconnectvn/"
+                label="Instagram"
+              >
+                <Instagram className="w-6 h-6" />
+              </SocialLink>
+            </div>
+
+            <span className="h-px w-full bg-slate-400" />
+
+            {/* Language Switch */}
+            <div className="flex items-center gap-4 text-sm">
+              <button
+                onClick={() => setLanguage("en")}
+                className={language === "en" ? "underline text-[#0057A0]" : "text-gray-500"}
+              >
+                {language === "en" ? "English" : "Tiếng Anh"}
+              </button>
+
+              <span className="text-gray-400">/</span>
+
+              <button
+                onClick={() => setLanguage("vi")}
+                className={language === "vi" ? "underline text-[#0057A0]" : "text-gray-500"}
+              >
+                {language === "vi" ? "Tiếng Việt" : "Vietnamese"}
+              </button>
+            </div>
           </div>
+
         </div>
       </div >
     </>
