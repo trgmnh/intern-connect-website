@@ -143,7 +143,7 @@ const Navbar = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setOpen(!open)}
-                className="lg:hidden p-2"
+                className="lg:hidden p-2 z-20"
                 aria-label="Toggle menu"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
@@ -165,7 +165,7 @@ const Navbar = () => {
         className={`
     fixed inset-0 z-40 bg-black/40 transition-opacity
     ${open ? "opacity-100 visible" : "opacity-0 invisible"}
-    md:hidden
+    lg:hidden
   `}
         onClick={() => setOpen(false)}
       />
@@ -177,7 +177,7 @@ const Navbar = () => {
     bg-white shadow-xl rounded-l-md
     transform transition-transform duration-300
     ${open ? "translate-x-0" : "translate-x-full"}
-    md:hidden
+    lg:hidden
   `}
       >
         <div className="flex flex-col h-full px-6 py-6 gap-8">

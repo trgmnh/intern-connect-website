@@ -155,13 +155,28 @@ export const CompactPostCard = ({ post, tagsfetch }) => {
 
 const StandardPostCard = ({ post, tagsfetch }) => {
     const tags = post.tags.map(id => tagsfetch[id]).filter(Boolean);
-    const previewLength = 420;
+    const [previewLength, setPreviewLength] = useState(420);
 
+    useEffect(() => {
+        const update = () => {
+            if (window.innerWidth < 640) {
+                setPreviewLength(120);      // mobile
+            } else if (window.innerWidth < 1024) {
+                setPreviewLength(240);      // tablet
+            } else {
+                setPreviewLength(420);      // desktop
+            }
+        };
+
+        update(); // run on mount
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
     return (
         <Link to={`/news/${post.slug}`} className="group">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
                 {/* Image */}
-                <div className="overflow-hidden aspect-[4/3] lg:aspect-[2.5/1]">
+                <div className="overflow-hidden aspect-[4/3] md:aspect-[5/3] lg:aspect-[2.5/1]">
                     <img
                         src={getPostImage(post)}
                         alt={post.title.rendered}

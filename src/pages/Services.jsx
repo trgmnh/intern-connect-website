@@ -22,8 +22,8 @@ const ServiceInclude = () => {
     const service = serviceInclude[language];
     return (
         <section className="max-w-[1440px] mx-auto px-5 my-10">
-            <div className="relative grid grid-cols-1 md:grid-cols-[1fr_2fr] items-stretch md:gap-10 ">
-                <div className="h-full"><img src={slide1} alt="About Us" className='object-cover h-full shadow-lg' /></div>
+            <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_2fr] items-stretch md:gap-10 ">
+                <div className="h-full"><img src={slide1} alt="About Us" className='object-cover h-full shadow-lg md:hidden lg:block' /></div>
                 <div className='flex flex-col md:shadow-md md:border md:border-gray-200 py-6 md:p-4 bg-white'>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-2 ">
                         {service.map((item) => {
@@ -32,7 +32,7 @@ const ServiceInclude = () => {
                             return (
                                 <div
                                     key={item.id}
-                                    className="flex flex-col items-center md:items-start gap-2 p-8 md:p-4 border border-gray-300 lg:border-none shadow-md lg:shadow-none duration-300"
+                                    className="flex flex-col items-center md:items-start gap-2 p-8 md:p-4 border border-gray-300 md:border-none shadow-md md:shadow-none duration-300"
                                 >
                                     <div className="w-fit bg-gray-200 p-3 mb-4 rounded-lg text-[#0057A0]">
                                         {Icon && <Icon className="w-10 h-10" width={16} height={16} />}

@@ -18,7 +18,6 @@ import slide1 from '../assets/carousel/slide1.jpg';
 import slide2 from '../assets/carousel/slide2.jpeg';
 import slide3 from '../assets/carousel/slide3.jpg';
 import slide4 from '../assets/carousel/slide4.jpg';
-import slide5 from '../assets/carousel/slide5.jpeg';
 
 const AboutImage = () => {
     const { language } = useLang();
@@ -157,7 +156,7 @@ const BoardOfDirectors = () => {
                         />
                     </div>
 
-                    <div className='bg-gradient-to-r from-[#0057A0] to-[#d62828] px-7 py-3'><h3 className="text-2xl font-bold text-[#ffffff]">
+                    <div className='bg-gradient-to-r from-[#0057A0] to-[#d62828] px-7 py-3'><h3 className="text-2xl md:text-xl lg:text-2xl font-bold text-[#ffffff]">
                         {vyContent.name}</h3></div>
 
                     <p className="text-xl font-semibold text-gray-500 my-4">
@@ -182,7 +181,7 @@ const BoardOfDirectors = () => {
                         />
                     </div>
 
-                    <div className='bg-gradient-to-l from-[#d62828] to-[#0057A0] px-7 py-3'><h3 className="text-2xl font-bold text-[#ffffff]">
+                    <div className='bg-gradient-to-l from-[#d62828] to-[#0057A0] px-7 py-3'><h3 className="text-2xl md:text-xl lg:text-2xl font-bold text-[#ffffff]">
                         {danielContent.name}</h3></div>
                     <p className="text-xl font-semibold text-gray-500 my-4">
                         {danielContent.position}
@@ -258,16 +257,13 @@ const Activities = () => {
     const { language } = useLang();
     const activity = activities[language] || [];
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch lg:grid my-20 px-5">
-            <Carousel
-                images={[
-                    slide1,
-                    slide2,
-                    slide3,
-                    slide4,
-                    slide5
-                ]}
-            />            <div className="grid grid-cols-1 gap-6 md:gap-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch my-20 px-5">
+            <div className="w-full aspect-[16/9] overflow-hidden px-5">
+                <Carousel
+                    images={[slide1, slide2, slide3, slide4]}
+                />
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:gap-0">
                 {activity.map((item) => {
                     const Icon = item.icon;
 

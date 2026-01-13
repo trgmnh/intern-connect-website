@@ -18,7 +18,7 @@ export const BannerService = () => {
     const service = ServicesBanner[language];
     return (
 
-        <section className="relative w-full h-[40vh] lg:h-[35vh] overflow-hidden">
+        <section className="relative w-full h-[40vh] md:h-[20vh] lg:h-[35vh] overflow-hidden">
             {/* Background image */}
             <img
                 src={servicesbanner}
@@ -75,7 +75,7 @@ export const BannerContact = () => {
     const contact = ContactBanner[language];
     return (
 
-        <section className="relative w-full h-[40vh] lg:h-[40vh] overflow-hidden">
+        <section className="relative w-full h-[40vh] md:h-[30vh] lg:h-[40vh] overflow-hidden">
             {/* Background image */}
             <img
                 src={contactbanner}
@@ -285,7 +285,7 @@ export const BlogBanner = () => {
                     <div className="absolute inset-0 bg-black/50"></div>
 
                     {/* Content wrapper */}
-                    <div className="relative z-10 h-full flex items-center justify-center py-20 md:py-0 max-w-[1380px] mx-auto px-5">
+                    <div className="relative z-10 h-full flex items-center justify-center py-20 lg:py-0 max-w-[1380px] mx-auto px-5">
                         <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr] gap-6 w-full text-white">
                             {/* Left column */}
                             <div className="flex flex-col gap-2 justify-center lg:justify-start items-start text-left px-5 md:px-0">

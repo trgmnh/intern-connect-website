@@ -17,7 +17,7 @@ export const HeroHome = () => {
     const home = Home[language];
 
     return (
-        <section className="relative w-full h-[60vh] sm:h-[70vh] screen overflow-hidden">
+        <section className="relative w-full h-[60vh] md:h-[40vh] lg:h-[70vh] screen overflow-hidden">
             {/* Background image */}
             <img
                 src={homebg}
@@ -53,12 +53,12 @@ export const HeroAbout = () => {
     const about = About[language];
 
     return (
-        <section className="relative w-full h-[70vh] sm:h-[60vh] screen overflow-hidden">
+        <section className="relative w-full h-[70vh] md:h-[40vh] sm:h-[60vh] screen overflow-hidden">
             {/* Background image */}
             <img
                 src={aboutbg}
                 alt="About Background"
-                className="absolute inset-0 w-full h-[80vh] object-cover"
+                className="absolute inset-0 w-full object-cover"
             />
 
             {/* Overlay */}
@@ -88,7 +88,7 @@ const HeroSection = ({ background, content }) => {
     const t = content[language];
 
     return (
-        <section className="relative w-full h-[30vh] sm:h-[40vh] overflow-hidden">
+        <section className="relative w-full h-[30vh] md:h-[20vh] sm:h-[40vh] overflow-hidden">
             {/* Background image */}
             <img
                 src={background}
