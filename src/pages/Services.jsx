@@ -224,12 +224,12 @@ const ServicesPage = () => (
         <ServiceInclude />
         <All.HeadingFeatures />
         <CollaborationFormats />
-        <BlogBanner />
+        <BannerContact />
         <All.HeadingDestinations />
         <Destinations />
         <All.HeadingInternships />
         <Internships />
-        <BannerContact />
+        <BlogBanner />
         <All.HeadingOurProcess />
         <Process />
         <All.HeadingCommitments />

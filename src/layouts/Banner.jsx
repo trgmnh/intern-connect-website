@@ -209,6 +209,29 @@ export const BannerNumbers = () => {
     );
 }
 
+const BlogBannerSkeleton = () => (
+    <section className="relative w-full overflow-hidden">
+        {/* Grey background */}
+        <div className="absolute inset-0 bg-gray-200" />
+
+        <div className="relative z-10 py-16 max-w-[1440px] mx-auto px-5">
+            <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-12 w-full animate-pulse">
+                {/* Left */}
+                <div className="flex flex-col gap-4">
+                    <div className="h-5 w-24 bg-gray-300 rounded" />
+                    <div className="h-6 w-4/5 bg-gray-300 rounded" />
+                    <div className="h-4 w-full bg-gray-300 rounded" />
+                    <div className="h-4 w-11/12 bg-gray-300 rounded" />
+                    <div className="h-4 w-10/12 bg-gray-300 rounded" />
+                    <div className="h-10 w-32 bg-gray-300 rounded mt-2" />
+                </div>
+
+                {/* Right */}
+                <div className="aspect-[5/3] w-full bg-gray-300 rounded" />
+            </div>
+        </div>
+    </section>
+);
 
 export const BlogBanner = () => {
     const { language } = useLang();
@@ -232,7 +255,7 @@ export const BlogBanner = () => {
                     postsData = postsCacheRef.current.get(language);
                 } else {
                     postsData = await fetchPostsList({
-                        perPage: 10,
+                        perPage: 4,
                         lang: language,
                     });
                     postsCacheRef.current.set(language, postsData);
@@ -276,6 +299,8 @@ export const BlogBanner = () => {
 
     return (
         <section className="relative w-full overflow-hidden lg:px-4">
+            {loading && <BlogBannerSkeleton />}
+
             {!loading && fourthPost && (
                 <>
                     <div className="absolute inset-0 bg-gray-800"></div>

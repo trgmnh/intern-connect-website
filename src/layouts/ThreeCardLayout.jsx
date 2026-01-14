@@ -41,6 +41,9 @@ export const CollaborationFormats = () => {
     );
 }
 
+
+
+
 export const HighlightedNews = ({ excludeId }) => {
     const [posts, setPosts] = useState([]);
     const [tags, setTags] = useState({});
@@ -50,6 +53,7 @@ export const HighlightedNews = ({ excludeId }) => {
     useEffect(() => {
         async function load() {
             try {
+                setLoading(true); // optional but correct
                 const [postsData, tagsData] = await Promise.all([
                     fetchPostsList({
                         perPage: 3,
@@ -69,10 +73,23 @@ export const HighlightedNews = ({ excludeId }) => {
         }
 
         load();
-    }, [excludeId]);
+    }, [excludeId, language]);
 
-    if (loading) return null;
-
+    if (loading)
+        return (
+            <div className="max-w-[1400px] mx-auto px-5 lg:px-10 pb-20 space-y-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div key={i} className="space-y-4">
+                            <div className="aspect-[4.5/3] bg-gray-200 animate-pulse" />
+                            <div className="h-4 bg-gray-200 rounded w-3/4 animate-pulse" />
+                            <div className="h-3 bg-gray-200 rounded w-full animate-pulse" />
+                            <div className="h-3 bg-gray-200 rounded w-5/6 animate-pulse" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
     return (
         <section className="flex flex-col items-center mb-6 md:mb-10 mx-auto w-full px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-2 md:mb-8 max-w-[1440px] mx-auto">
