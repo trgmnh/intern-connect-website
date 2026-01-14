@@ -76,7 +76,7 @@ const BlogPostPage = () => {
                 <>
                     <article className="max-w-[948px] mx-auto px-4 py-10">
 
-                        <h1 className="text-4xl font-bold mb-4">
+                        <h1 className="text-3xl font-bold mb-4">
                             {post.title.rendered}
                         </h1>
 
@@ -92,7 +92,7 @@ const BlogPostPage = () => {
                             <img
                                 src={post._embedded["wp:featuredmedia"][0].source_url}
                                 alt={post.title.rendered}
-                                className="w-full max-h-[600px] object-cover rounded-lg mb-10"
+                                className="w-full max-h-[600px] object-cover mb-10"
                                 loading="lazy"
                             />
                         )}
@@ -102,12 +102,12 @@ const BlogPostPage = () => {
                             className="
 prose max-w-none text-justify
 
-    [&_h1]:text-[2.1rem] [&_h1]:leading-[1.15]
-    [&_h2]:text-[1.75rem] [&_h2]:leading-[1.2]
-    [&_h3]:text-[1.4rem]  [&_h3]:leading-[1.25]
-    [&_h4]:text-[1.15rem] [&_h4]:leading-[1.3]
-    [&_h5]:text-[1.05rem] [&_h5]:leading-[1.35]
-    [&_h6]:text-[0.95rem] [&_h6]:leading-[1.4]
+    [&_h1]:text-3xl [&_h1]:leading-[1.15]
+    [&_h2]:text-2xl [&_h2]:leading-[1.2]
+    [&_h3]:text-xl  [&_h3]:leading-[1.25]
+    [&_h4]:text-lg [&_h4]:leading-[1.3]
+    [&_h5]:text-md leading-[1.35]
+    [&_h6]:text-sm [&_h6]:leading-[1.4]
 
     [&_h1]:mt-8 [&_h1]:mb-4
     [&_h2]:mt-8 [&_h2]:mb-3

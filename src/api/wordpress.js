@@ -39,17 +39,7 @@ export async function fetchPostBySlug(slug, lang = "en") {
         `${WP_BASE}/posts` +
         `?slug=${slug}` +
         `&lang=${lang}` +
-        `&_embed` +
-        `&_fields=` +
-        [
-            "id",
-            "slug",
-            "title.rendered",
-            "content.rendered",
-            "date",
-            "tags",
-            "_embedded.wp:featuredmedia"
-        ].join(",");
+        `&_embed`;
 
     const res = await fetch(url);
     if (!res.ok) throw new Error("Failed to fetch post");
@@ -57,6 +47,7 @@ export async function fetchPostBySlug(slug, lang = "en") {
     const posts = await res.json();
     return posts[0] || null;
 }
+
 
 /**
  * Tags are shared across languages (Polylang default)
