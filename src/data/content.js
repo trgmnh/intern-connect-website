@@ -222,7 +222,7 @@ export const ProcessContent = {
         {
             id: "01",
             title: "Thỏa Thuận",
-            description: "Liên hệ đăng kí và ác nhận tham gia thực tập."
+            description: "Liên hệ đăng kí và xác nhận tham gia thực tập."
         },
         {
             id: "02",
