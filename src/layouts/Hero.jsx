@@ -14,7 +14,7 @@ export const HeroHome = () => {
     const home = Home[language];
 
     return (
-        <section className="relative w-full h-[60vh] md:h-[40vh] lg:h-[70vh] screen overflow-hidden">
+        <section className="relative w-full h-[70vh] md:h-[40vh] lg:h-[70vh] screen overflow-hidden">
             {/* Background image */}
             <img
                 src={homebg}

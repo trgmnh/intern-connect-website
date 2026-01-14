@@ -138,7 +138,7 @@ prose max-w-none text-justify tracking-tight
                         />
                     </article>
 
-                    <div className="max-w-[1080px] mx-auto px-5 lg:px-10 mb-10">
+                    <div className="max-w-[1080px] mx-auto mb-10">
                         <h2 className="text-2xl font-semibold pb-6 px-5">
                             {language === "en" ? "All Posts" : "Tất cả bài viết"}
                         </h2>
