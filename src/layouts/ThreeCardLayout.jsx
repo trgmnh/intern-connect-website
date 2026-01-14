@@ -41,13 +41,10 @@ export const CollaborationFormats = () => {
 }
 
 
-
-
-export const HighlightedNews = ({ excludeId }) => {
+export const HighlightedNews = ({ excludeId, language }) => {
     const [posts, setPosts] = useState([]);
     const [tags, setTags] = useState({});
     const [loading, setLoading] = useState(true);
-    const { language } = useLang();
 
     useEffect(() => {
         async function load() {

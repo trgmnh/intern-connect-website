@@ -49,7 +49,7 @@ export const HeroAbout = () => {
     const about = About[language];
 
     return (
-        <section className="relative w-full h-[70vh] md:h-[60vh] screen overflow-hidden">
+        <section className="relative w-full h-[70vh] screen overflow-hidden">
             {/* Background image */}
             <img
                 src={aboutbg}

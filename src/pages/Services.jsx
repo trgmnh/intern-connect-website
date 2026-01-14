@@ -1,15 +1,15 @@
 import { useLang } from '../context/LangContext';
-import * as All from '../layouts/Heading';
+import { HeadingFeatures, HeadingOpportunities, HeadingOurProcess, HeadingCommitments, HeadingTestimonials, HeadingFAQ } from '../layouts/Heading';
 import { HeroServices } from "../layouts/Hero";
 import { serviceInclude } from '../data/services';
-import { CommitmentContent, ProcessContent } from '../data/content';
+import { ProcessContent } from '../data/content';
 import { faqs } from '../data/faq';
 import { testimonials } from '../data/testimonials';
 import { BackgroundGradient } from '../components/ui/Background';
 import { TestimonialsCard } from '../components/ui/Cards';
 import { CollaborationFormats } from "../layouts/ThreeCardLayout";
 import { BlogBanner, BannerContact } from "../layouts/Banner";
-import { Destinations, Internships } from "../layouts/FourCardsLayout";
+import { Opportunities } from "../layouts/FourCardsLayout";
 import { Button } from '../components/ui/Button';
 import { FrequentAskedQuestionCard } from '../components/ui/Cards';
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const ServiceInclude = () => {
     const { language } = useLang();
     const service = serviceInclude[language];
     return (
-        <section className="max-w-[1440px] mx-auto px-5 my-10">
+        <section className="max-w-[1440px] mx-auto px-5 mt-10">
             <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_2fr] items-stretch md:gap-10 ">
                 <div className="h-full"><img src={slide1} alt="About Us" className='object-cover h-full shadow-lg md:hidden lg:block' /></div>
                 <div className='flex flex-col md:shadow-md md:border md:border-gray-200 py-6 md:p-4 bg-white'>
@@ -53,10 +53,6 @@ const ServiceInclude = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="hidden lg:block absolute -bottom-30 right-20 w-16 h-16">
-                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-[#0057A0]" />
-                <span className="absolute bottom-0 right-0 h-full w-[4px] bg-[#d62828]" />
-            </div> */}
         </section>
 
     );
@@ -134,39 +130,6 @@ const Process = () => {
     );
 };
 
-const Commitment = () => {
-    const { language } = useLang();
-    const content = CommitmentContent[language] || CommitmentContent.en;
-
-    return (
-        <div className="max-w-7xl mx-auto py-8 px-4 bg-white">
-            {/* 4-column grid for desktop, stacks on mobile */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-                {content.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                        <div key={item.id} className="flex flex-col items-center text-center">
-                            {/* Icon Container */}
-                            <div className="mb-6 flex items-center justify-center text-[#8998B6]">
-                                <Icon
-                                    className="w-16 h-16 text-[#8E9AAF]"
-                                    width={64}
-                                    height={64}
-                                    style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05))' }}
-                                />
-                            </div>
-
-                            {/* Text Description */}
-                            <p className="text-md text-gray-700 leading-relaxed max-w-[240px]">
-                                {item.text}
-                            </p>
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
-};
 
 const FrequentAskedQuestions = () => {
     const { language } = useLang();
@@ -220,22 +183,20 @@ const ServicesPage = () => (
         <HeroServices />
         {/* <All.HeadingOurServices /> */}
         <ServiceInclude />
-        <All.HeadingFeatures />
+        <HeadingFeatures />
         <CollaborationFormats />
         <BannerContact />
-        <All.HeadingDestinations />
-        <Destinations />
-        <All.HeadingInternships />
-        <Internships />
-        <BlogBanner />
-        <All.HeadingOurProcess />
-        <Process />
-        <All.HeadingCommitments />
-        <Commitment />
-        <All.HeadingTestimonials />
+        <HeadingOpportunities />
+        <Opportunities />
+        <HeadingTestimonials />
         <Testimonials />
-        <All.HeadingFAQ />
+        <BlogBanner />
+        <HeadingOurProcess />
+        <Process />
+        <HeadingFAQ />
         <FrequentAskedQuestions />
+
+
         {/* Add more sections if needed */}
     </>
 );

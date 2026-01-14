@@ -1,101 +1,75 @@
-import { Card } from "../components/ui/Cards"
 import { useLang } from '../context/LangContext';
-import { destinations, internships } from '../data/fourcardlayout';
-import australiaImg from '../assets/card/australia.jpg';
-import thailandImg from '../assets/card/thailand.jpg';
-import uaeImg from '../assets/card/uae.jpg';
-import vietnamImg from '../assets/card/vietnam.jpg';
-import frontofficeImg from '../assets/card/frontoffice.jpg';
-import fnbImg from '../assets/card/foodbev.jpg';
-import culinaryImg from '../assets/card/culinary.jpg';
-import managementImg from '../assets/card/management.jpg';
+import { Link } from "react-router-dom";
+import { opportunities } from '../data/fourcardlayout';
+import { ArrowToRight } from '../components/ui/Icons';
 
-export const Destinations = () => {
-    const { language } = useLang();
-    const destination = destinations[language] || [];
+const OpportunityCard = ({ image, title, description, link, cta }) => {
     return (
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 max-w-[1440px] mx-auto mb-10">
-            <Card
-                key="Australia"
-                imageSrc={australiaImg}
-                title={destination.australia.title}
-                description={destination.australia.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={destination.cta.link}
-            />
-            <Card
-                key="Thailand"
-                imageSrc={thailandImg}
-                title={destination.thailand.title}
-                description={destination.thailand.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={destination.cta.link}
-            />
-            <Card
-                key="UAE"
-                imageSrc={uaeImg}
-                title={destination.uae.title}
-                description={destination.uae.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={destination.cta.link}
-            />
-            <Card
-                key="Vietnam"
-                imageSrc={vietnamImg}
-                title={destination.vietnam.title}
-                description={destination.vietnam.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={destination.cta.link}
-            />
-        </div>
+        <Link to={link} >
+            <div
+                className={`relative overflow-hidden rounded-xl group aspect-[5/3]`}
+            >
+                {/* Background image */}
+                <img
+                    src={image}
+                    alt={title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
+                    loading="lazy"
+                />
+
+                {/* Overlay */}
+                <div className={`absolute inset-0 bg-black bg-opacity-40`} />
+
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+                    <h3 className="text-2xl font-semibold leading-snug mb-1">
+                        {title}
+                    </h3>
+
+                    {description && (
+                        <p className="hidden group-hover:block text-sm text-white/90 leading-relaxed line-clamp-3 ">
+                            {description}
+                        </p>
+                    )}
+                    <div
+                        className="
+                            mt-4 text-regular  justify-start items-center gap-2
+                            text-white hidden group-hover:flex font-semibold
+                        "
+                    >
+                        {cta}
+                        <ArrowToRight className="w-3 h-3" width={12} />
+                    </div>
+                </div>
+
+            </div>
+        </Link>
     );
-}
+};
 
-export const Internships = () => {
+
+export const Opportunities = () => {
     const { language } = useLang();
-    const internship = internships[language] || [];
+    const opportunitiesData = Object.entries(opportunities[language] || {})
+        .filter(([key]) => key !== "cta")
+        .map(([key, value]) => ({
+            id: key,
+            ...value
+        }));
     return (
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 max-w-[1440px] mx-auto mb-20">
-            <Card
-                key="Front Office"
-                imageSrc={frontofficeImg}
-                title={internship.frontoffice.title}
-                description={internship.frontoffice.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={internship.cta.link}
-            />
-            <Card
-                key="Food & Beverage"
-                imageSrc={fnbImg}
-                title={internship.fnb.title}
-                description={internship.fnb.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={internship.cta.link}
-            />
-            <Card
-                key="Culinary"
-                imageSrc={culinaryImg}
-                title={internship.culinary.title}
-                description={internship.culinary.description}
-            // link="/contact"
-            // pointer={true}
-            // cta={internship.cta.link}
-            />
-            <Card
-                key="Management"
-                imageSrc={managementImg}
-                title={internship.management.title}
-                description={internship.management.description}
-                // link="/contact"
-                pointer={false}
-            // cta={internship.cta.link}
-            />
-        </div>
+        <section className="w-full max-w-[1440px] mx-auto px-5 lg:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {opportunitiesData.map(card => (
+                    <OpportunityCard
+                        key={card.id}
+                        image={card.img}
+                        title={card.title}
+                        description={card.description}
+                        link={card.slug}
+                        pointer={true}
+                        cta={opportunities[language].cta.link}
+                    />))}
+            </div>
+        </section>
     );
 }

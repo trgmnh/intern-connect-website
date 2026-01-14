@@ -11,8 +11,10 @@ import daniel from '../assets/bod/mrdaniel.png';
 import mrsvy from '../assets/bod/mrsvy.png';
 import { Globe, Connect, Award, PersonCheckedFill, PeopleFill, Eye, BriefCase, GraphUpArrow } from '../components/ui/Icons';
 import { useLang } from '../context/LangContext';
-import { HeadingBOD, HeadingCoreValues } from '../layouts/Heading';
+import { HeadingBOD, HeadingCoreValues, HeadingCommitments } from '../layouts/Heading';
 import { activities } from '../data/threecardlayout';
+import { CommitmentContent } from '../data/content';
+import { ContactUsPage } from './Contact.jsx';
 import Carousel from '../libraries/Carousel';
 import slide1 from '../assets/carousel/slide1.jpg';
 import slide2 from '../assets/carousel/slide2.jpeg';
@@ -294,6 +296,40 @@ const Activities = () => {
     );
 }
 
+const Commitment = () => {
+    const { language } = useLang();
+    const content = CommitmentContent[language] || CommitmentContent.en;
+
+    return (
+        <div className="max-w-7xl mx-auto py-8 px-4 bg-white">
+            {/* 4-column grid for desktop, stacks on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                {content.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <div key={item.id} className="flex flex-col items-center text-center">
+                            {/* Icon Container */}
+                            <div className="mb-6 flex items-center justify-center text-[#8998B6]">
+                                <Icon
+                                    className="w-16 h-16 text-[#8E9AAF]"
+                                    width={64}
+                                    height={64}
+                                    style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05))' }}
+                                />
+                            </div>
+
+                            {/* Text Description */}
+                            <p className="text-md text-gray-700 leading-relaxed max-w-[240px]">
+                                {item.text}
+                            </p>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
+
 const AboutPage = () => (
     <>
         <HeroAbout />
@@ -311,6 +347,9 @@ const AboutPage = () => (
         <Activities />
         <BannerService />
 
+        <HeadingCommitments />
+        <Commitment />
+        <ContactUsPage />
     </>
 );
 

@@ -1,12 +1,12 @@
 export const HeadingHome = {
     partners: {
         en: {
-            sub: "Our Partners",
+            sub: "Where Our Interns Gain Experience",
             main: "Industry Leaders Worldwide"
         },
         vi: {
-            sub: "Đối Tác Của Chúng Tôi",
-            main: "Các Khách Sạn Hàng Đầu Thế Giới"
+            sub: "Nơi thực tập sinh học hỏi thực tế",
+            main: "Các Đơn vị Dẫn đầu Ngành Toàn cầu"
         }
     },
     chooseUs: {
@@ -19,24 +19,14 @@ export const HeadingHome = {
             main: "Đối Tác Thực Tập Đáng Tin Cậy Của Bạn"
         }
     },
-    destinations: {
+    opportunities: {
         en: {
-            sub: "Go Beyond Borders",
-            main: "Internship Destinations"
-        },
-        vi: {
-            sub: "Khám Phá",
-            main: "Địa Điểm Thực Tập"
-        }
-    },
-    internships: {
-        en: {
-            sub: "Gain Real-World Experience",
-            main: "Internship Programs"
+            sub: "Internship programs across multiple countries",
+            main: "Global Internship Opportunities"
         },
         vi: {
             sub: "Trải Nghiệm Thực Tế",
-            main: "Chương Trình Thực Tập"
+            main: "Đa dạng Chương trình Thực tập tại nhiều quốc gia "
         }
     },
     testimonials: {

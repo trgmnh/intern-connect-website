@@ -46,25 +46,26 @@ const BlogPostPage = () => {
     useEffect(() => {
         let mounted = true;
 
+        // reset UI immediately
+        setPost(null);
+        setError(null);
+        setLoading(true);
+
         async function load() {
             try {
-                setLoading(true);
-                setError(null);
-
                 const data = await fetchPostBySlug(slug, language);
-
                 if (!data) throw new Error("Post not found");
 
-                let tagsData;
-                if (tagsCacheRef.current) {
-                    tagsData = tagsCacheRef.current;
-                } else {
+                let tagsData = tagsCacheRef.current;
+                if (!tagsData) {
                     tagsData = await fetchTags();
                     tagsCacheRef.current = tagsData;
                 }
 
-                if (mounted) setPost(data); setTagsMap(tagsData);
-
+                if (mounted) {
+                    setPost(data);
+                    setTagsMap(tagsData);
+                }
             } catch (err) {
                 if (mounted) setError(err.message);
             } finally {
@@ -75,6 +76,7 @@ const BlogPostPage = () => {
         load();
         return () => (mounted = false);
     }, [slug, language]);
+
 
     const tags = useMemo(() => {
         return post && tagsMap
@@ -131,7 +133,7 @@ const BlogPostPage = () => {
                         {/* 🔒 YOUR FORMATTING — UNTOUCHED */}
                         <div
                             className="
-prose max-w-[948px] mx-auto text-left md:text-justify tracking-tight
+prose max-w-[948px] mx-auto text-left md:text-justify tracking-normal
 
     [&_h1]:text-xl [&_h1]:leading-[1.15]
     [&_h2]:text-lg [&_h2]:leading-[1.2]
@@ -172,7 +174,7 @@ prose max-w-[948px] mx-auto text-left md:text-justify tracking-tight
                         <h2 className="text-2xl font-semibold pb-6 px-5">
                             {language === "en" ? "All Posts" : "Tất cả bài viết"}
                         </h2>
-                        <HighlightedNews excludeId={post.id} />
+                        <HighlightedNews excludeId={post.id} language={language} />
                         <div className="py-10 pb-6"><ContactUsPage /></div>
                     </div>
                 </>

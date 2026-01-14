@@ -1,7 +1,7 @@
 import { HeroHome } from "../layouts/Hero.jsx";
-import { HeadingPartner, HeadingInternships, HeadingDestinations, HeadingNews, HeadingChooseUs } from "../layouts/Heading.jsx";
+import { HeadingPartner, HeadingOpportunities, HeadingNews, HeadingChooseUs } from "../layouts/Heading.jsx";
 import { LogoHotel } from "../layouts/LogoHotel.jsx";
-import { Destinations, Internships } from "../layouts/FourCardsLayout.jsx";
+import { Opportunities } from "../layouts/FourCardsLayout.jsx";
 import { BannerService } from "../layouts/Banner.jsx";
 import { AboutUsHome } from "../data/content.js";
 import { whyChooseUs } from "../data/content.js";
@@ -10,7 +10,6 @@ import { ContactUsPage } from "./Contact.jsx";
 import { useLang } from "../context/LangContext.jsx";
 import logo from "../assets/logo.png";
 import { HighlightedNews } from "../layouts/ThreeCardLayout.jsx";
-
 
 const AboutHome = () => {
     const { language } = useLang();
@@ -131,24 +130,25 @@ const WhyChooseUs = () => {
     );
 }
 
-const HomePage = () => (
-    <>
-        <HeroHome />
-        <HeadingPartner />
-        <LogoHotel />
-        <HeadingNews />
-        <HighlightedNews />
-        <div className="md:py-16 md:px-10 md:bg-slate-800"><ContactUsPage /></div>
-        <HeadingDestinations />
-        <Destinations />
-        <HeadingInternships />
-        <Internships />
-        <BannerService />
-        <AboutHome />
-        <HeadingChooseUs />
-        <WhyChooseUs />
-        {/* Add more sections if needed */}
-    </>
-);
+const HomePage = () => {
+    const { language } = useLang();
+    return (
+        <>
+            <HeroHome />
+            <HeadingPartner />
+            <LogoHotel />
+            <HeadingOpportunities />
+            <Opportunities />
 
+            <ContactUsPage />
+            <HeadingNews />
+            <HighlightedNews language={language} />
+            <BannerService />
+            <AboutHome />
+            <HeadingChooseUs />
+            <WhyChooseUs />
+            {/* Add more sections if needed */}
+        </>
+    );
+}
 export default HomePage;
