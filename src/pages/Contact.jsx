@@ -119,7 +119,7 @@ export const ContactUsPage = () => {
                     </div>
 
                     {/* Socials */}
-                    <div className="w-full py-4 mb-5 md:mb-0 px-5 md:px-0">
+                    <div className="w-full py-4 mb-2 md:mb-0 px-5 md:px-0">
                         <div className="flex justify-center md:justify-start gap-4 text-[#5C6370]">
                             <SocialLink
                                 href="https://www.facebook.com/profile.php?id=61581832680507"
