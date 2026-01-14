@@ -29,7 +29,7 @@ export const BannerService = () => {
             <div className="absolute inset-0 bg-black/50"></div>
 
             {/* Content wrapper (centers vertically) */}
-            <div className="relative z-10 h-full flex items-center max-w-[1440px] w-full mx-auto">
+            <div className="relative z-10 h-full flex items-center max-w-[1340px] w-full mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-6 w-full text-white">
 
                     {/* Left column */}
@@ -87,7 +87,7 @@ export const BannerContact = () => {
 
             {/* Content wrapper (centers vertically) */}
             <div className="relative z-10 h-full flex items-center justify-center mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr] gap-6 w-full max-w-[1440px] px-4 text-white">
+                <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr] gap-6 w-full max-w-[1340px] px-4 text-white">
 
                     {/* Left column */}
                     <div
@@ -139,7 +139,7 @@ export const BannerNumbers = () => {
             <div className="absolute inset-0 bg-black/50"></div>
 
             {/* Content wrapper */}
-            <div className="relative z-10 h-full flex items-center max-w-[1350px] w-full mx-auto px-5 sm:px-6 lg:px-10">
+            <div className="relative z-10 h-full flex items-center max-w-[1440px] w-full mx-auto px-5 sm:px-6 lg:px-10">
                 <div className="w-full text-white">
 
                     {/* Header */}
@@ -212,7 +212,7 @@ const BlogBannerSkeleton = () => (
         {/* Grey background */}
         <div className="absolute inset-0 bg-gray-200" />
 
-        <div className="relative z-10 py-16 max-w-[1440px] mx-auto px-5">
+        <div className="relative z-10 py-16 max-w-[1280px] mx-auto px-5">
             <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-12 w-full animate-pulse">
                 {/* Left */}
                 <div className="flex flex-col gap-4">
@@ -303,7 +303,7 @@ export const BlogBanner = () => {
                 <>
                     <div className="absolute inset-0 bg-gray-800"></div>
 
-                    <div className="relative z-10 h-full flex items-center py-16 max-w-[1440px] mx-auto px-5">
+                    <div className="relative z-10 h-full flex items-center py-16 max-w-[1280px] mx-auto px-5">
                         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-12 w-full text-white">
                             {/* Left */}
                             <div className="flex flex-col justify-center gap-3">
@@ -318,7 +318,7 @@ export const BlogBanner = () => {
                                     ))}
                                 </div>
 
-                                <h1 className="text-xl font-semibold">
+                                <h1 className="text-2xl font-semibold">
                                     {fourthPost.title.rendered}
                                 </h1>
 
