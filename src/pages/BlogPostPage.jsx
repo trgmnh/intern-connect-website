@@ -100,7 +100,7 @@ const BlogPostPage = () => {
                         {/* 🔒 YOUR FORMATTING — UNTOUCHED */}
                         <div
                             className="
-prose max-w-none text-justify
+prose max-w-none text-justify tracking-tight
 
     [&_h1]:text-3xl [&_h1]:leading-[1.15]
     [&_h2]:text-2xl [&_h2]:leading-[1.2]
