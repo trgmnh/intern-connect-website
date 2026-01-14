@@ -1,4 +1,3 @@
-import React from "react";
 import { useLang } from '../context/LangContext';
 import * as All from '../layouts/Heading';
 import { HeroServices } from "../layouts/Hero";
@@ -11,7 +10,6 @@ import { TestimonialsCard } from '../components/ui/Cards';
 import { CollaborationFormats } from "../layouts/ThreeCardLayout";
 import { BlogBanner, BannerContact } from "../layouts/Banner";
 import { Destinations, Internships } from "../layouts/FourCardsLayout";
-import aboutuspic from '../assets/card/aboutuspic.jpeg';
 import { Button } from '../components/ui/Button';
 import { FrequentAskedQuestionCard } from '../components/ui/Cards';
 import { Link } from "react-router-dom";

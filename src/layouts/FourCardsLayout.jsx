@@ -1,5 +1,4 @@
 import { Card } from "../components/ui/Cards"
-import React from "react";
 import { useLang } from '../context/LangContext';
 import { destinations, internships } from '../data/fourcardlayout';
 import australiaImg from '../assets/card/australia.jpg';

@@ -1,4 +1,3 @@
-import React from "react";
 import servicesbanner from '../assets/banner/servicesbanner.jpg';
 import contactbanner from '../assets/banner/contactbanner.jpg';
 import numbersbanner from '../assets/banner/numbersbanner.jpg';
@@ -7,7 +6,6 @@ import { useLang } from '../context/LangContext.jsx';
 import { Link } from "react-router-dom";
 import { ServicesBanner, ContactBanner, Numbers } from '../data/banner.js';
 import CountUp from '../libraries/CountUp.jsx';
-import blogbanner from '../assets/banner/blogbanner.jpg';
 import { useState, useEffect, useMemo, useRef } from "react";
 import { fetchPostsList, fetchTags } from "../api/wordpress.js";
 import { getPostImage } from "../utils/getPostImage.js";

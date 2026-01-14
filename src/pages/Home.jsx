@@ -2,7 +2,7 @@ import { HeroHome } from "../layouts/Hero.jsx";
 import { HeadingPartner, HeadingInternships, HeadingDestinations, HeadingNews, HeadingChooseUs } from "../layouts/Heading.jsx";
 import { LogoHotel } from "../layouts/LogoHotel.jsx";
 import { Destinations, Internships } from "../layouts/FourCardsLayout.jsx";
-import { BlogBanner, BannerService, BannerContact } from "../layouts/Banner.jsx";
+import { BannerService } from "../layouts/Banner.jsx";
 import { AboutUsHome } from "../data/content.js";
 import { whyChooseUs } from "../data/content.js";
 import { ArrowToRight } from "../components/ui/Icons.jsx";

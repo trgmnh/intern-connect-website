@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import homebg from '../assets/hero/home.jpg';
 import aboutbg from '../assets/hero/about.jpg';
 import servicesbg from '../assets/hero/services.jpg';

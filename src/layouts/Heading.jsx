@@ -1,7 +1,5 @@
-import React from "react";
 import { useLang } from '../context/LangContext';
 import { HeadingHome, HeadingAbout, ServicesHeading } from '../data/heading_content';
-import { Star } from '../components/ui/Icons';
 
 const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
     return (

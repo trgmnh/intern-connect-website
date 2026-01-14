@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useLang } from "../context/LangContext";
 import logo from "../assets/logo.png";
 import {

@@ -1,4 +1,3 @@
-import React from "react";
 import { useLang } from '../context/LangContext';
 import { Card } from "../components/ui/Cards";
 import { PostCard } from "../pages/News.jsx";
