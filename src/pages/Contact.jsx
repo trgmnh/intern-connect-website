@@ -58,12 +58,12 @@ export const ContactUsPage = () => {
         <section
             id="contact"
             className="relative bg-gray-100/30 md:bg-white
-             max-w-[1240px] mx-auto px-5 md:px-10 lg:px-0 py-16"
+             max-w-[1240px] mx-auto md:px-10 lg:px-0 md:py-16"
         >
             <div
-                className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] rounded-lg border border-gray-200 shadow-md"
+                className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] rounded-lg border border-gray-200 md:shadow-md"
             >                {/* LEFT */}
-                <div className="flex flex-col justify-between gap-6 items-center md:items-start shadow-xl md:border md:border-gray-200 md:py-16 md:px-12">
+                <div className="flex flex-col justify-between gap-6 items-center pt-10 mt-10 md:mt-0 md:items-start md:shadow-xl md:border md:border-gray-200 md:py-16 md:px-12">
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
                         <img
                             src={logo}
@@ -119,7 +119,7 @@ export const ContactUsPage = () => {
                     </div>
 
                     {/* Socials */}
-                    <div className="w-full py-4">
+                    <div className="w-full py-4 mb-5 md:mb-0 px-5 md:px-0">
                         <div className="flex justify-center md:justify-start gap-4 text-[#5C6370]">
                             <SocialLink
                                 href="https://www.facebook.com/profile.php?id=61581832680507"
@@ -142,8 +142,6 @@ export const ContactUsPage = () => {
                         </div>
                     </div>
                 </div>
-
-                <span className="flex md:hidden w-[90%] my-10 mx-auto h-[0.5px] bg-gray-300" />
 
                 {/* RIGHT */}
                 <div className="flex items-center justify-center px-5 md:px-10 border md:border-gray-200 py-10 md:py-0 ">
@@ -177,7 +175,7 @@ export const ContactUsPage = () => {
                                 />
                             </div>
 
-                            <div className="flex justify-center md:justify-end pt-2 pb-10 md:pb-0">
+                            <div className="flex justify-center md:justify-end pt-2">
                                 <button
                                     type="submit"
                                     disabled={loading}
