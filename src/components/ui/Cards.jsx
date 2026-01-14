@@ -22,7 +22,7 @@ export const Card = ({
                 hover:shadow-xl transition-shadow duration-300
                 rounded-md
                 flex flex-col overflow-hidden
-                ${pointer ? "cursor-pointer" : ""}
+                ${pointer ? "cursor-pointer" : "cursor-default"}
             `}
             >
                 {/* Image wrapper */}

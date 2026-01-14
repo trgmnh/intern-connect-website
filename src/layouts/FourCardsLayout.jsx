@@ -21,36 +21,36 @@ export const Destinations = () => {
                 imageSrc={australiaImg}
                 title={destination.australia.title}
                 description={destination.australia.description}
-                link="/contact"
-                pointer={true}
-                cta={destination.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={destination.cta.link}
             />
             <Card
                 key="Thailand"
                 imageSrc={thailandImg}
                 title={destination.thailand.title}
                 description={destination.thailand.description}
-                link="/contact"
-                pointer={true}
-                cta={destination.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={destination.cta.link}
             />
             <Card
                 key="UAE"
                 imageSrc={uaeImg}
                 title={destination.uae.title}
                 description={destination.uae.description}
-                link="/contact"
-                pointer={true}
-                cta={destination.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={destination.cta.link}
             />
             <Card
                 key="Vietnam"
                 imageSrc={vietnamImg}
                 title={destination.vietnam.title}
                 description={destination.vietnam.description}
-                link="/contact"
-                pointer={true}
-                cta={destination.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={destination.cta.link}
             />
         </div>
     );
@@ -66,36 +66,36 @@ export const Internships = () => {
                 imageSrc={frontofficeImg}
                 title={internship.frontoffice.title}
                 description={internship.frontoffice.description}
-                link="/contact"
-                pointer={true}
-                cta={internship.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={internship.cta.link}
             />
             <Card
                 key="Food & Beverage"
                 imageSrc={fnbImg}
                 title={internship.fnb.title}
                 description={internship.fnb.description}
-                link="/contact"
-                pointer={true}
-                cta={internship.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={internship.cta.link}
             />
             <Card
                 key="Culinary"
                 imageSrc={culinaryImg}
                 title={internship.culinary.title}
                 description={internship.culinary.description}
-                link="/contact"
-                pointer={true}
-                cta={internship.cta.link}
+            // link="/contact"
+            // pointer={true}
+            // cta={internship.cta.link}
             />
             <Card
                 key="Management"
                 imageSrc={managementImg}
                 title={internship.management.title}
                 description={internship.management.description}
-                link="/contact"
-                pointer={true}
-                cta={internship.cta.link}
+                // link="/contact"
+                pointer={false}
+            // cta={internship.cta.link}
             />
         </div>
     );

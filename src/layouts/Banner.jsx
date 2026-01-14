@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import { ServicesBanner, ContactBanner, Numbers } from '../data/banner.js';
 import CountUp from '../libraries/CountUp.jsx';
 import blogbanner from '../assets/banner/blogbanner.jpg';
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { fetchPostsList, fetchTags } from "../api/wordpress.js";
 import { getPostImage } from "../utils/getPostImage.js";
 import { truncate } from "../pages/News.jsx";
+import { getTagColorById } from "../data/tags.js";
 
 export const BannerService = () => {
     const { language } = useLang();
@@ -211,113 +212,113 @@ export const BannerNumbers = () => {
 
 export const BlogBanner = () => {
     const { language } = useLang();
+
     const [posts, setPosts] = useState([]);
     const [tagsMap, setTagsMap] = useState({});
+    const [loading, setLoading] = useState(true);
 
-    const postsCache = new Map(); // key: lang → posts[]
-    const tagsCache = { value: null }; // tags are language-agnostic
+    const postsCacheRef = useRef(new Map());
+    const tagsCacheRef = useRef(null);
 
-    // fetch posts + tags
     useEffect(() => {
         let mounted = true;
+        setLoading(true);
 
         async function loadData() {
             try {
-                // 🔹 POSTS CACHE (by language)
-                if (postsCache.has(language)) {
-                    setPosts(postsCache.get(language));
+                // 🔹 POSTS
+                let postsData;
+                if (postsCacheRef.current.has(language)) {
+                    postsData = postsCacheRef.current.get(language);
                 } else {
-                    const postsData = await fetchPostsList({
+                    postsData = await fetchPostsList({
                         perPage: 10,
                         lang: language,
                     });
-
-                    if (!mounted) return;
-                    postsCache.set(language, postsData);
-                    setPosts(postsData);
+                    postsCacheRef.current.set(language, postsData);
                 }
 
-                // 🔹 TAGS CACHE (shared across languages)
-                if (tagsCache.value) {
-                    setTagsMap(tagsCache.value);
+                // 🔹 TAGS
+                let tagsData;
+                if (tagsCacheRef.current) {
+                    tagsData = tagsCacheRef.current;
                 } else {
-                    const tagsData = await fetchTags();
-                    if (!mounted) return;
-                    tagsCache.value = tagsData;
-                    setTagsMap(tagsData);
+                    tagsData = await fetchTags();
+                    tagsCacheRef.current = tagsData;
                 }
+
+                if (!mounted) return;
+
+                setPosts(postsData);
+                setTagsMap(tagsData);
             } catch (err) {
                 console.error(err);
+            } finally {
+                if (mounted) setLoading(false);
             }
         }
 
         loadData();
-        return () => {
-            mounted = false;
-        };
+        return () => (mounted = false);
     }, [language]);
 
-    // Always run hooks — even if posts are empty
     const sortedPosts = useMemo(() => {
         return [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
     }, [posts]);
 
-    // 4th post (may be undefined until fetched)
     const fourthPost = sortedPosts[3];
 
-    // Tags for the 4th post
-    const postTags = useMemo(() => {
-        return fourthPost ? fourthPost.tags.map(id => tagsMap[id]).filter(Boolean) : [];
+    const tags = useMemo(() => {
+        return fourthPost
+            ? fourthPost.tags.map(id => tagsMap[id]).filter(Boolean)
+            : [];
     }, [fourthPost, tagsMap]);
 
     return (
-        <section className="relative w-full h-auto lg:h-[40vh] overflow-hidden lg:px-4">
-            {fourthPost && (
+        <section className="relative w-full overflow-hidden lg:px-4">
+            {!loading && fourthPost && (
                 <>
-                    {/* Background image */}
-                    <img
-                        src={getPostImage(fourthPost)}
-                        alt={fourthPost.title.rendered}
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
+                    <div className="absolute inset-0 bg-gray-800"></div>
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/50"></div>
-
-                    {/* Content wrapper */}
-                    <div className="relative z-10 h-full flex items-center justify-center py-20 lg:py-0 max-w-[1380px] mx-auto px-5">
-                        <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr] gap-6 w-full text-white">
-                            {/* Left column */}
-                            <div className="flex flex-col gap-2 justify-center lg:justify-start items-start text-left px-5 md:px-0">
-                                {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-2">
-                                    {postTags.map(tag => (
+                    <div className="relative z-10 h-full flex items-center py-16 max-w-[1440px] mx-auto px-5">
+                        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-12 w-full text-white">
+                            {/* Left */}
+                            <div className="flex flex-col justify-center gap-3">
+                                <div className="flex gap-2">
+                                    {tags.map(tag => (
                                         <span
                                             key={tag.id}
-                                            className="bg-white/20 text-white text-xs px-2 py-1 rounded-full uppercase font-medium"
+                                            className={`text-xs px-2 py-1 rounded-full ${getTagColorById(tag.id)}`}
                                         >
                                             {tag.name}
                                         </span>
                                     ))}
                                 </div>
 
-                                {/* Title */}
-                                <h1 className="text-xl font-semibold capitalize leading-tight">
+                                <h1 className="text-xl font-semibold">
                                     {fourthPost.title.rendered}
                                 </h1>
 
-                                {/* Excerpt */}
-                                <p className="font-regular text-sm max-w-[90ch] line-clamp">
-                                    {truncate(fourthPost.excerpt.rendered.replace(/(<([^>]+)>)/gi, ""), 180)}
+                                <p className="text-sm leading-relaxed text-justify mb-2">
+                                    {truncate(
+                                        fourthPost.excerpt.rendered.replace(/(<([^>]+)>)/gi, ""),
+                                        420
+                                    )}
                                 </p>
-                            </div>
 
-                            {/* Right column */}
-                            <div className="flex items-center justify-start px-5 lg:justify-end">
                                 <Link to={`/news/${fourthPost.slug}`}>
                                     <ButtonTransparent text="Read Article" />
                                 </Link>
                             </div>
+
+                            {/* Right */}
+                            <Link to={`/news/${fourthPost.slug}`}>
+                                <img
+                                    src={getPostImage(fourthPost)}
+                                    alt={fourthPost.title.rendered}
+                                    className="aspect-[5/3] w-full object-cover hover:scale-105 transition rounded-md"
+                                />
+                            </Link>
                         </div>
                     </div>
                 </>
@@ -325,3 +326,4 @@ export const BlogBanner = () => {
         </section>
     );
 };
+

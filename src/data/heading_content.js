@@ -25,7 +25,7 @@ export const HeadingHome = {
             main: "Internship Destinations"
         },
         vi: {
-            sub: "Khám Phá Địa Điểm Hấp Dẫn",
+            sub: "Khám Phá",
             main: "Địa Điểm Thực Tập"
         }
     },
@@ -65,8 +65,8 @@ export const HeadingHome = {
             main: "Stay Updated with The Industry"
         },
         vi: {
-            sub: "Tin Tức Mới Nhất",
-            main: "Cập Nhật Thông Tin"
+            sub: "Cập Nhật",
+            main: "Thông Tin Tuyển Dụng"
         }
     }
 };

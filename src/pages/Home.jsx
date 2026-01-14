@@ -59,9 +59,9 @@ const AboutHome = () => {
 
                                 <a
                                     href="/services"
-                                    className="mt-3 inline-flex mx-auto lg:mx-0 items-center gap-1.5 text-sm text-blue-500 hover:underline"
+                                    className="mt-3 inline-flex mx-auto lg:mx-0 items-center gap-1.5 text-sm text-[#0057A0] font-medium hover:underline"
                                 >
-                                    Learn more
+                                    {language === "en" ? "Learn More" : "Tìm Hiểu Thêm"}
                                     <ArrowToRight className="w-4 h-4" />
                                 </a>
                             </div>
@@ -136,14 +136,13 @@ const HomePage = () => (
         <HeroHome />
         <HeadingPartner />
         <LogoHotel />
-
+        <HeadingNews />
+        <HighlightedNews />
+        <div className="md:py-16 md:px-10 md:bg-slate-800"><ContactUsPage /></div>
         <HeadingDestinations />
         <Destinations />
         <HeadingInternships />
         <Internships />
-        <ContactUsPage />
-        <HeadingNews />
-        <HighlightedNews />
         <BannerService />
         <AboutHome />
         <HeadingChooseUs />

@@ -15,7 +15,7 @@ export const CollaborationFormats = () => {
     const { language } = useLang();
     const collab = collaboration[language] || [];
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-5 mb-20 justify-items-center max-w-[1440px] mx-auto lg:justify-items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-5 mb-16 justify-items-center max-w-[1440px] mx-auto lg:justify-items-stretch">
             <Card
                 key=""
                 imageSrc={academicpartnership}
@@ -75,7 +75,7 @@ export const HighlightedNews = ({ excludeId }) => {
 
     return (
         <section className="flex flex-col items-center mb-6 md:mb-10 mx-auto w-full px-5">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 max-w-[1440px] mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-2 md:mb-8 max-w-[1440px] mx-auto">
                 {posts.map(post => (
                     <PostCard
                         key={post.id}

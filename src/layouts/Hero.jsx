@@ -8,9 +8,7 @@ import { ButtonTransparent } from '../components/ui/Button';
 import { useLang } from '../context/LangContext';
 import { About, Home, Sections } from '../data/hero_content';
 import { Link } from "react-router-dom";
-import { Star, StarFill } from '../components/ui/Icons';
-import { LogoHotel } from './LogoHotel';
-
+import { StarFill } from '../components/ui/Icons';
 
 export const HeroHome = () => {
     const { language, setLanguage } = useLang();
@@ -29,8 +27,8 @@ export const HeroHome = () => {
             <div className="absolute inset-0 bg-black/50"></div>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col gap-6 items-center lg:items-start justify-center h-full text-white sm:pl-20 mx-5 max-w-2xl text-center lg:text-left">
-                <div className="flex justify-center md:justify-start items-center w-full max-w-xs gap-2 mt-2">
+            <div className="relative z-10 flex flex-col gap-6 items-center lg:items-start justify-center mx-auto lg:mx-0 lg:pl-32 h-full text-white max-w-[720px] text-center px-5 lg:text-left">
+                <div className="flex justify-center lg:justify-start items-center w-full gap-2 mt-2">
                     <StarFill className="w-2 h-2 bg-gray-300" width={16} />
                     <StarFill className="w-2 h-2 bg-gray-300" width={16} />
                     <StarFill className="w-2 h-2 bg-gray-300" width={16} />
@@ -48,17 +46,16 @@ export const HeroHome = () => {
 
 // ...existing code...
 export const HeroAbout = () => {
-    const [open, setOpen] = useState(false);
     const { language, setLanguage } = useLang();
     const about = About[language];
 
     return (
-        <section className="relative w-full h-[70vh] md:h-[40vh] sm:h-[60vh] screen overflow-hidden">
+        <section className="relative w-full h-[70vh] md:h-[60vh] screen overflow-hidden">
             {/* Background image */}
             <img
                 src={aboutbg}
                 alt="About Background"
-                className="absolute inset-0 w-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
             />
 
             {/* Overlay */}
@@ -102,7 +99,7 @@ const HeroSection = ({ background, content }) => {
             {/* Content */}
             <div className="relative z-10 flex flex-col gap-4 items-center justify-center h-full text-white max-w-[1440px] mx-auto px-5">
                 <h1 className="text-2xl sm:text-3xl font-semibold">{t.title}</h1>
-                <p className="font-regular text-sm max-w-[60ch] text-center md:text-left">{t.paragraph}</p>
+                <p className="font-regular text-sm max-w-[60ch] text-center">{t.paragraph}</p>
             </div>
         </section>
     );

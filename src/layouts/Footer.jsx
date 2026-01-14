@@ -74,11 +74,11 @@ const Footer = () => {
 
 
                         {/*Column 3*/}
-                        <div className="flex flex-col justify-center px-5 py-4">
+                        <div className="flex flex-col justify-start px-5 py-4 md:pt-12">
                             {/* Main + Explore */}
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="flex flex-col align-top text-sm py-4">
-                                    <h2 className="block pb-3 font-semibold text-[#0A142F]">Main</h2>
+                                    <h2 className="block pb-3 font-semibold text-[#0A142F]">{language == "en" ? "Navigation" : "Điều hướng"}</h2>
 
                                     <Link to="/" className="py-1 text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all" onClick={ScrollToTop}>
                                         {t.nav.home}
@@ -96,8 +96,8 @@ const Footer = () => {
                                         {t.nav.blog}
                                     </Link>
                                 </div>
-                                <div className="flex flex-col text-sm py-3">
-                                    <h2 className="block pb-3 font-semibold text-[#0A142F]">Explore</h2>
+                                <div className="flex flex-col text-sm py-4">
+                                    <h2 className="block pb-3 font-semibold text-[#0A142F]">{language == "en" ? "Explore" : "Khám Phá"}</h2>
                                     <a href="#" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.destination}</a>
                                     <a href="#" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.internships}</a>
                                     <div className="w-full py-4">

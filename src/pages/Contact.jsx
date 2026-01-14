@@ -57,11 +57,12 @@ export const ContactUsPage = () => {
     return (
         <section
             id="contact"
-            className="relative overflow-hidden bg-gray-100/30 md:bg-white max-w-[1380px] mx-auto py-16 px-5 md:px-10 lg:px-20 mb-20"
+            className="relative overflow-hidden bg-gray-100/30 md:bg-white
+             max-w-[1240px] mx-auto px-5 md:px-10 lg:px-0 md:shadow-xl"
         >
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200 md:shadow-md">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] md:border md:border-gray-200">
                 {/* LEFT */}
-                <div className="flex flex-col justify-between gap-6 items-center md:items-start md:border md:border-gray-200 md:shadow-xl md:py-14 md:px-12">
+                <div className="flex flex-col justify-between gap-6 items-center md:items-start pt-10 md:border md:border-gray-200 md:shadow-xl md:py-16 md:px-12">
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
                         <img
                             src={logo}
@@ -175,7 +176,7 @@ export const ContactUsPage = () => {
                                 />
                             </div>
 
-                            <div className="flex justify-center md:justify-end pt-4">
+                            <div className="flex justify-center md:justify-end pt-4 pb-10 md:pb-0">
                                 <button
                                     type="submit"
                                     disabled={loading}
@@ -244,7 +245,7 @@ const NameFields = ({ content, language }) => {
 const ContactPage = () => (
     <>
         <HeroContact />
-        <ContactUsPage />
+        <div className="md:py-16 md:px-10"><ContactUsPage /></div>
     </>
 );
 
