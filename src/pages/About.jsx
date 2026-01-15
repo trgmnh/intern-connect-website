@@ -20,6 +20,7 @@ import slide1 from '../assets/carousel/slide1.jpg';
 import slide2 from '../assets/carousel/slide2.jpeg';
 import slide3 from '../assets/carousel/slide3.jpg';
 import slide4 from '../assets/carousel/slide4.jpg';
+import slide5 from '../assets/carousel/slide5.jpeg';
 
 const AboutImage = () => {
     const { language } = useLang();
@@ -262,7 +263,7 @@ const Activities = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch my-20 px-5">
             <div className="w-full aspect-[16/9] overflow-hidden px-5">
                 <Carousel
-                    images={[slide1, slide2, slide3, slide4]}
+                    images={[slide3, slide5, slide2, slide1, slide4]}
                 />
             </div>
             <div className="grid grid-cols-1 gap-6 md:gap-0">

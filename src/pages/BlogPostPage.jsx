@@ -174,7 +174,7 @@ prose max-w-[948px] mx-auto text-left md:text-justify tracking-normal
                         <h2 className="text-2xl font-semibold pb-6 px-5">
                             {language === "en" ? "All Posts" : "Tất cả bài viết"}
                         </h2>
-                        <HighlightedNews excludeId={post.id} language={language} />
+                        <HighlightedNews excludeId={post.id} lang={language} />
                         <div className="py-10 pb-6"><ContactUsPage /></div>
                     </div>
                 </>

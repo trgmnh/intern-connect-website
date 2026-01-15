@@ -40,7 +40,6 @@ export const CollaborationFormats = () => {
     );
 }
 
-
 export const HighlightedNews = ({ excludeId, language }) => {
     const [posts, setPosts] = useState([]);
     const [tags, setTags] = useState({});
@@ -54,7 +53,7 @@ export const HighlightedNews = ({ excludeId, language }) => {
                     fetchPostsList({
                         perPage: 3,
                         exclude: excludeId,
-                        language: language,
+                        lang: language || 'en',
                     }),
                     fetchTags(),
                 ]);

@@ -296,18 +296,29 @@ export const BlogBanner = () => {
     }, [fourthPost, tagsMap]);
 
     return (
-        <section className="relative w-full overflow-hidden lg:px-4">
+        <section className="relative w-full overflow-hidden">
             {loading && <BlogBannerSkeleton />}
 
             {!loading && fourthPost && (
                 <>
-                    <div className="absolute inset-0 bg-gray-800"></div>
+                    {/* Background image */}
+                    <div
+                        className="absolute inset-0 bg-center bg-cover"
+                        style={{
+                            backgroundImage: `url(${getPostImage(fourthPost)})`,
+                        }}
+                    />
 
-                    <div className="relative z-10 h-full flex items-center py-16 max-w-[1280px] mx-auto px-5">
+
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-black/65" />
+
+                    {/* Content */}
+                    <div className="relative z-10 py-16 max-w-[1340px] mx-auto px-5">
                         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-12 w-full text-white">
                             {/* Left */}
                             <div className="flex flex-col justify-center gap-3">
-                                <div className="flex gap-2">
+                                <div className="flex gap-2 flex-wrap">
                                     {tags.map(tag => (
                                         <span
                                             key={tag.id}
@@ -334,12 +345,12 @@ export const BlogBanner = () => {
                                 </Link>
                             </div>
 
-                            {/* Right */}
+                            {/* Right (still sharp) */}
                             <Link to={`/news/${fourthPost.slug}`}>
                                 <img
                                     src={getPostImage(fourthPost)}
                                     alt={fourthPost.title.rendered}
-                                    className="aspect-[5/3] w-full object-cover hover:scale-105 transition rounded-md"
+                                    className="aspect-[5/3] w-full object-cover rounded-md hover:scale-105 transition"
                                 />
                             </Link>
                         </div>
@@ -347,6 +358,7 @@ export const BlogBanner = () => {
                 </>
             )}
         </section>
+
     );
 };
 
