@@ -261,7 +261,7 @@ const Activities = () => {
     const activity = activities[language] || [];
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch my-20 px-5">
-            <div className="w-full aspect-[16/9] overflow-hidden">
+            <div className="w-full min-h-[220px] md:min-h-[360px] aspect-auto overflow-hidden">
                 <Carousel
                     images={[slide3, slide5, slide2, slide1, slide4]}
                 />
