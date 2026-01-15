@@ -50,11 +50,11 @@ export const Sections = {
     contact: {
         en: {
             title: "Contact Us",
-            paragraph: "Have questions? Reach out to us for more information about our internship programs."
+            paragraph: "Have questions about internships? Reach out to us for more information about our internship programs."
         },
         vi: {
             title: "Liên hệ",
-            paragraph: "Bạn có thắc mắc? Hãy liên hệ với chúng tôi để được tư vấn chi tiết về các chương trình thực tập."
+            paragraph: "Bạn có thắc mắc về cơ hội thực tập? Hãy liên hệ với chúng tôi để được tư vấn chi tiết về các chương trình thực tập."
         }
     }
 };

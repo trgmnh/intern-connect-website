@@ -98,8 +98,9 @@ const Footer = () => {
                                 </div>
                                 <div className="flex flex-col text-sm py-4">
                                     <h2 className="block pb-3 font-semibold text-[#0A142F]">{language == "en" ? "Explore" : "Khám Phá"}</h2>
-                                    <a href="#" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.destination}</a>
-                                    <a href="#" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.internships}</a>
+                                    <a href="/services" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.opportunities}</a>
+                                    <a href="/contact" className="py-1 font-regular text-[#5C6370] hover:text-[#0A142F] hover:font-medium transition-all">{t.footer.explore.consulting}</a>
+
                                     <div className="w-full py-4">
                                         <div className="flex justify-start align-middle text-[#5C6370] gap-4">
                                             <a href="https://www.facebook.com/profile.php?id=61581832680507"

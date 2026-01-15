@@ -63,7 +63,7 @@ export const ContactUsPage = () => {
             <div
                 className="relative z-10 grid grid-cols-1 md:grid-cols-[4fr_5fr] rounded-lg border border-gray-200 md:shadow-md"
             >                {/* LEFT */}
-                <div className="flex flex-col justify-between gap-6 items-center pt-10 mt-10 md:mt-0 md:items-start md:shadow-xl md:border md:border-gray-200 md:py-16 md:px-12">
+                <div className="flex flex-col justify-between gap-6 items-center mt-10 md:mt-0 md:items-start md:shadow-xl md:border md:border-gray-200 md:py-16 md:px-12">
                     <div className="md:max-w-md px-6 md:px-0 text-center md:text-left">
                         <img
                             src={logo}

@@ -1,3 +1,5 @@
+import { opportunities } from "./fourcardlayout";
+
 export const navbar = {
     en: {
         nav: {
@@ -11,8 +13,8 @@ export const navbar = {
             address: "247A/2 Huynh Van Banh, Ward 11, Phu Nhuan District, Ho Chi Minh City, Vietnam",
             main: "Main",
             explore: {
-                destination: "Destinations",
-                internships: "Internship Programs",
+                opportunities: "Internship Programs",
+                consulting: "Consulting"
             }
         }
     },
@@ -29,8 +31,8 @@ export const navbar = {
             address: "247A/2 Huỳnh Văn Bánh, phường 11, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam",
             main: "Chung",
             explore: {
-                destination: "Điểm đến",
-                internships: "Chương trình thực tập",
+                opportunities: "Cơ hội thực tập",
+                consulting: "Tư vấn việc làm"
             }
         }
     }
