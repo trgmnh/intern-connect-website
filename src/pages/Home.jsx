@@ -1,7 +1,7 @@
 import { HeroHome } from "../layouts/Hero.jsx";
 import { HeadingPartner, HeadingOpportunities, HeadingNews, HeadingChooseUs } from "../layouts/Heading.jsx";
 import { LogoHotel } from "../layouts/LogoHotel.jsx";
-import { Opportunities } from "../layouts/FourCardsLayout.jsx";
+import { Opportunities } from "../layouts/Opportunities.jsx";
 import { BannerService } from "../layouts/Banner.jsx";
 import { AboutUsHome } from "../data/content.js";
 import { whyChooseUs } from "../data/content.js";

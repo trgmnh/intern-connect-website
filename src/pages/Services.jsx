@@ -1,5 +1,5 @@
 import { useLang } from '../context/LangContext';
-import { HeadingFeatures, HeadingOpportunities, HeadingOurProcess, HeadingCommitments, HeadingTestimonials, HeadingFAQ } from '../layouts/Heading';
+import { HeadingFeatures, HeadingOpportunities, HeadingOurProcess, HeadingTestimonials, HeadingFAQ } from '../layouts/Heading';
 import { HeroServices } from "../layouts/Hero";
 import { serviceInclude } from '../data/services';
 import { ProcessContent } from '../data/content';
@@ -9,7 +9,7 @@ import { BackgroundGradient } from '../components/ui/Background';
 import { TestimonialsCard } from '../components/ui/Cards';
 import { CollaborationFormats } from "../layouts/ThreeCardLayout";
 import { BlogBanner, BannerContact } from "../layouts/Banner";
-import { Opportunities } from "../layouts/FourCardsLayout";
+import { Opportunities } from "../layouts/Opportunities";
 import { Button } from '../components/ui/Button';
 import { FrequentAskedQuestionCard } from '../components/ui/Cards';
 import { Link } from "react-router-dom";

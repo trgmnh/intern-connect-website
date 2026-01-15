@@ -1,13 +1,10 @@
-import { useLang } from '../context/LangContext';
-import { Card } from "../components/ui/Cards";
+import { useLang } from '../context/LangContext.jsx';
+import { Card } from "../components/ui/Cards.jsx";
 import { PostCard } from "../pages/News.jsx";
-import { collaboration } from '../data/threecardlayout';
-import academicpartnership from '../assets/card/academicpartnership.jpg';
-import mobilityprogram from '../assets/card/mobilityprogram.jpg';
-import cobranding from '../assets/card/cobranding.jpg';
+import { collaboration } from '../data/threecardlayout.js';
 import { Button } from "../components/ui/Button.jsx";
 import { Link } from "react-router-dom";
-import { fetchPostsList, fetchTags } from "../api/wordpress";
+import { fetchPostsList, fetchTags } from "../api/wordpress.js";
 import { useEffect, useState } from "react";
 
 export const CollaborationFormats = () => {
@@ -16,22 +13,23 @@ export const CollaborationFormats = () => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-5 mb-16 justify-items-center max-w-[1440px] mx-auto lg:justify-items-stretch">
             <Card
-                key=""
-                imageSrc={academicpartnership}
+                key={collab.academicsupport.id}
+                image={collab.academicsupport.img}
                 title={collab.academicsupport.title}
                 description={collab.academicsupport.description}
+                link={collab.academicsupport.slug}
             />
 
             <Card
-                key=""
-                imageSrc={mobilityprogram}
+                key={collab.mobilityprogram.id}
+                image={collab.mobilityprogram.img}
                 title={collab.mobilityprogram.title}
                 description={collab.mobilityprogram.description}
             />
 
             <Card
-                key=""
-                imageSrc={cobranding}
+                key={collab.cobranding.id}
+                image={collab.cobranding.img}
                 title={collab.cobranding.title}
                 description={collab.cobranding.description}
             />

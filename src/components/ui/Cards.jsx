@@ -1,69 +1,39 @@
-import React from "react";
-import { StarFill, Add, Minus, ArrowToRight, ArrowUpRight } from "./Icons";
+import { StarFill, Add, Minus, ArrowToRight } from "./Icons";
 import { useState } from "react";
-import { useLang } from '../../context/LangContext';
 import { Link } from "react-router-dom";
 
 // for internship and destination cards
-export const Card = ({
-    imageSrc,
-    title,
-    description,
-    link,
-    pointer = false,
-    cta
-}) => {
-    const { languague } = useLang();
+export const Card = ({ image, title, description, link }) => {
     return (
-        <Link to={link} >
-            <div
-                className={`
-                group bg-white h-full border border-gray-200 shadow-md
-                hover:shadow-xl transition-shadow duration-300
-                rounded-md
-                flex flex-col overflow-hidden
-                ${pointer ? "cursor-pointer" : "cursor-default"}
-            `}
-            >
-                {/* Image wrapper */}
-                <div className="relative overflow-hidden aspect-[4.5/3]">
-                    <img
-                        src={imageSrc}
-                        alt={title}
-                        className="
-                        w-full h-full object-cover object-center
-                        transition-transform duration-500 ease-out
-                        group-hover:scale-110
-                        will-change-transform
-                    "
-                    />
-                    <div className="
-        absolute inset-0 bg-black/0
-        group-hover:bg-black/10
-        transition-colors duration-300
-    " />
-                </div>
+        <div
+            className={`relative overflow-hidden rounded-lg group aspect-[5/3]`}
+        >
+            {/* Background image */}
+            <img
+                src={image}
+                alt={title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
+                loading="lazy"
+            />
 
-                {/* Content */}
-                <div className="p-5 gap-2 flex flex-col justify-between flex-grow">
-                    <div className="flex flex-col gap-3">
-                        <h3 className="text-lg font-semibold leading-tight">{title}</h3>
-                        <p className="text-sm text-gray-600 leading-snug">{description}</p></div>
+            {/* Overlay */}
+            <div className={`absolute inset-0 bg-black bg-opacity-40`} />
 
-                    {link && (
-                        <a
-                            href={link}
-                            className="
-                            mt-4 text-regular inline-flex justify-start items-center gap-2
-                            text-blue-700 font-semibold hover:underline 
-                        "
-                        >
-                            {cta}
-                            <ArrowToRight className="w-3 h-3" width={12} />
-                        </a>
-                    )}
-                </div>
-            </div> </Link>
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+                <h3 className="text-xl font-semibold leading-snug mb-1">
+                    {title}
+                </h3>
+
+                {description && (
+                    <p className="block text-sm text-white/90 leading-relaxed line-clamp-3 ">
+                        {description}
+                    </p>
+                )}
+
+            </div>
+
+        </div>
     );
 };
 

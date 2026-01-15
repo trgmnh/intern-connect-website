@@ -2,6 +2,9 @@ import { Globe, PeopleFill, HeadSet } from "../components/ui/Icons";
 import globalpartnershipImg from '../assets/card/globalpartnership.jpg';
 import candidateselectionImg from '../assets/card/candidateselection.jpeg';
 import supportImg from '../assets/card/candidatesupport.jpeg';
+import academicpartnership from '../assets/card/academicpartnership.jpg';
+import mobilityprogram from '../assets/card/mobilityprogram.jpg';
+import cobranding from '../assets/card/cobranding.jpg';
 
 export const activities = {
     en: [
@@ -61,30 +64,36 @@ export const collaboration = {
     en: {
         academicsupport: {
             title: "Academic Credit Partnerships",
-            description: "Collaborating with universities to provide academic credits for internship programs."
+            description: "Collaborating with universities to provide academic credits for internship programs.",
+            img: academicpartnership
         },
         mobilityprogram: {
             title: "Student Mobility Programs",
-            description: "Facilitating international exchange programs to enhance students' global exposure."
+            description: "Facilitating international exchange programs to enhance students' global exposure.",
+            img: mobilityprogram
         },
         cobranding: {
             title: "Co-Branding & Instition Promotion",
-            description: "Partnering with educational institutions for joint branding and marketing initiatives."
+            description: "Partnering with educational institutions for joint branding and marketing initiatives.",
+            img: cobranding
         }
     },
 
     vi: {
         academicsupport: {
             title: "Hợp Tác Tín Chỉ Học Tập",
-            description: "Hợp tác với các trường đại học để cung cấp tín chỉ học tập cho các chương trình thực tập."
+            description: "Hợp tác với các trường đại học để cung cấp tín chỉ học tập cho các chương trình thực tập.",
+            img: academicpartnership
         },
         mobilityprogram: {
             title: "Chương Trình Trao Đổi Sinh Viên",
-            description: "Tạo điều kiện cho các chương trình trao đổi quốc tế nhằm nâng cao trải nghiệm toàn cầu của sinh viên."
+            description: "Tạo điều kiện cho các chương trình trao đổi quốc tế nhằm nâng cao trải nghiệm toàn cầu của sinh viên.",
+            img: mobilityprogram
         },
         cobranding: {
             title: "Đồng Thương Hiệu & Quảng Bá",
-            description: "Hợp tác với các cơ sở giáo dục để thực hiện các sáng kiến đồng thương hiệu và tiếp thị."
+            description: "Hợp tác với các cơ sở giáo dục để thực hiện các sáng kiến đồng thương hiệu và tiếp thị.",
+            img: cobranding
         }
     }
 };

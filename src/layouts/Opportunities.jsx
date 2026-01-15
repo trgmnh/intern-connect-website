@@ -1,6 +1,6 @@
 import { useLang } from '../context/LangContext';
 import { Link } from "react-router-dom";
-import { opportunities } from '../data/fourcardlayout';
+import { opportunities } from '../data/opportunities';
 import { ArrowToRight } from '../components/ui/Icons';
 
 const OpportunityCard = ({ image, title, description, link, cta }) => {

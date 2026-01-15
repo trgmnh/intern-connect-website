@@ -261,12 +261,12 @@ const Activities = () => {
     const activity = activities[language] || [];
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch my-20 px-5">
-            <div className="w-full min-h-[220px] md:min-h-[360px] aspect-auto overflow-hidden">
+            <div className="w-full min-h-[220px] md:min-h-[360px] aspect-auto overflow-hidden shadow-lg">
                 <Carousel
                     images={[slide3, slide5, slide2, slide1, slide4]}
                 />
             </div>
-            <div className="grid grid-cols-1 gap-6 md:gap-0">
+            <div className="grid grid-cols-1 gap-6 md:py-4 md:gap-0 md:shadow-lg md:border border-gray-200">
                 {activity.map((item) => {
                     const Icon = item.icon;
 
@@ -344,7 +344,6 @@ const AboutPage = () => (
         <HeadingBOD />
         <BoardOfDirectors />
 
-        {/* <HeadingActivities /> */}
         <Activities />
         <BannerService />
 

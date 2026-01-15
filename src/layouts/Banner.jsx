@@ -29,7 +29,7 @@ export const BannerService = () => {
             <div className="absolute inset-0 bg-black/50"></div>
 
             {/* Content wrapper (centers vertically) */}
-            <div className="relative z-10 h-full flex items-center max-w-[1340px] w-full mx-auto">
+            <div className="relative z-10 h-full flex items-center max-w-[1440px] w-full mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-6 w-full text-white">
 
                     {/* Left column */}

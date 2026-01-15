@@ -1,4 +1,4 @@
-import { opportunities } from "./fourcardlayout";
+import { opportunities } from "./opportunities";
 
 export const navbar = {
     en: {
