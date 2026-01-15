@@ -261,7 +261,7 @@ const Activities = () => {
     const activity = activities[language] || [];
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 max-w-[1440px] mx-auto lg:justify-items-stretch my-20 px-5">
-            <div className="w-full aspect-[16/9] overflow-hidden px-5">
+            <div className="w-full aspect-[16/9] overflow-hidden">
                 <Carousel
                     images={[slide3, slide5, slide2, slide1, slide4]}
                 />
@@ -275,7 +275,7 @@ const Activities = () => {
                             key={item.id}
                             className="flex flex-col items-center md:items-start border md:border-none border-gray-300 shadow-md md:shadow-none duration-300"
                         >
-                            <div className="px-8 py-2 flex flex-col gap-2 w-full">
+                            <div className="px-8 py-6 md:py-2 flex flex-col gap-2 w-full">
                                 <div className="mx-auto md:mx-0 w-fit bg-gray-200 p-3 my-3 rounded-lg text-[#0057A0]">
                                     {Icon && <Icon className="w-10 h-10" width={20} height={20} />}
                                 </div>

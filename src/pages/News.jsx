@@ -223,7 +223,7 @@ export const PostCard = ({ post, tagsfetch }) => {
     const truncate = (text, max) => (text.length > max ? text.slice(0, max) + "…" : text);
 
     return (
-        <Link to={`/news/${post.slug}`} className="group flex flex-col h-full bg-white overflow-hidden hover:shadow-xl transition-shadow">
+        <Link to={`/news/${post.slug}`} className="group flex flex-col h-full bg-white overflow-hidden hover:shadow-xl hover:rounded-2xl transition-shadow">
             {/* Image */}
             <div className="relative w-full aspect-[5/3] overflow-hidden">
                 <img
@@ -236,7 +236,7 @@ export const PostCard = ({ post, tagsfetch }) => {
             </div>
 
             {/* excerpt */}
-            <div className="py-4 flex flex-col justify-between gap-2 group-hover:px-4">
+            <div className="py-4 flex flex-col justify-between gap-2 group-hover:px-6">
                 {/* Date */}
                 <p className="text-xs text-gray-500">
                     {new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
