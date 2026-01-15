@@ -1,5 +1,5 @@
 import { useLang } from '../context/LangContext';
-import { HeadingHome, HeadingAbout, ServicesHeading } from '../data/heading_content';
+import { HeadingHome, HeadingAbout, ServicesHeading } from '../data/heading';
 
 const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
     return (
@@ -10,7 +10,7 @@ const Heading = ({ h2sub, h1main, paragraph, bgColor }) => {
             <h1 className="text-3xl font-bold text-[#21272A] tracking-normal">
                 {h1main}
             </h1>
-            {paragraph && <p className="mt-2 max-w-3xl text-sm text-gray-600">{paragraph}</p>}
+            {paragraph && <p className="mt-2 max-w-3xl text-sm text-gray-600 tracking-normal">{paragraph}</p>}
         </div>
     );
 }

@@ -204,7 +204,7 @@ const Navbar = () => {
       flex items-center gap-5
       px-2 py-4 rounded-xl
       text-lg font-semibold
-      text-slate-800
+      text-slate-700
       hover:bg-slate-100
       transition
     "
@@ -220,7 +220,7 @@ const Navbar = () => {
       flex items-center gap-5
       px-2 py-4 rounded-xl
       text-lg font-semibold
-      text-slate-800
+      text-slate-700
       hover:bg-slate-100
       transition
     "
@@ -236,7 +236,7 @@ const Navbar = () => {
       flex items-center gap-5
       px-2 py-4 rounded-xl
       text-lg font-semibold
-      text-slate-800
+      text-slate-700
       hover:bg-slate-100
       transition
     "
@@ -252,7 +252,7 @@ const Navbar = () => {
       flex items-center gap-5
       px-2 py-4 rounded-xl
       text-lg font-semibold
-      text-slate-800
+      text-slate-700
       hover:bg-slate-100
       transition
     "
@@ -268,7 +268,7 @@ const Navbar = () => {
       flex items-center gap-5
       px-2 py-4 rounded-xl
       text-lg font-semibold
-      text-slate-800
+      text-slate-700
       hover:bg-slate-100
       transition
     "

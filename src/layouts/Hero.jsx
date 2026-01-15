@@ -5,7 +5,7 @@ import newsbg from '../assets/hero/news.jpg';
 import contactbg from '../assets/hero/contact.jpg';
 import { ButtonTransparent } from '../components/ui/Button';
 import { useLang } from '../context/LangContext';
-import { About, Home, Sections } from '../data/hero_content';
+import { About, Home, Sections } from '../data/hero';
 import { Link } from "react-router-dom";
 import { StarFill } from '../components/ui/Icons';
 

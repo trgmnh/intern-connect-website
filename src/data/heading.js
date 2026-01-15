@@ -89,7 +89,7 @@ export const HeadingAbout = {
         en: {
             sub: "Board of Directors",
             main: "Meet Our Leadership Team",
-            paragraph: "Extensive experience in study abroad consultancy, international partnerships,and hospitality management."
+            paragraph: "Extensive experience in study abroad consultancy, international partnerships, and hospitality management."
         },
         vi: {
             sub: "Hội Đồng Quản Trị",
