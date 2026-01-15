@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="hidden md:flex bg-gradient-to-r from-[#0057A0] via-[#7b3a5d] to-[#d62828] text-white px-4 py-[4px] md:px-10 flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="mailto:recruitmentmanager@internconnectvn.com" className="flex items-center gap-2 hover:underline">
-              <Mail className="w-4 md:w-3 h-auto" />
+              <Mail className="w-4 h-auto" />
               <span className="hidden text-xs sm:inline">recruitmentmanager@internconnectvn.com</span>
             </a>
             <a href="tel:+84376884053" className="flex items-center gap-2 hover:underline">
@@ -55,13 +55,13 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <a href="https://www.facebook.com/profile.php?id=61581832680507" target='blank' className="cursor-pointer hover:opacity-80">
-              <Facebook className="w-3 h-3" />
+              <Facebook className="w-4 h-auto" />
             </a>
             <a href="https://www.tiktok.com/@weareinternconnect" target='blank' className="cursor-pointer hover:opacity-80">
-              <TikTok className="w-3 h-3" />
+              <TikTok className="w-4 h-auto" />
             </a>
             <a href="https://www.instagram.com/internconnectvn/" target='blank' className="cursor-pointer hover:opacity-80">
-              <Instagram className="w-3 h-3" />
+              <Instagram className="w-4 h-auto" />
             </a>
           </div>
         </div>
